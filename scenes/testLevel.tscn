@@ -32,10 +32,22 @@ offset_bottom = 642.0
 mouse_filter = 2
 
 [node name="Player" parent="." instance=ExtResource("3_aqu4s")]
-position = Vector2(135, 500)
+position = Vector2(229, 496)
 
 [node name="MushroomSwitch" parent="." instance=ExtResource("4_hu6j5")]
 position = Vector2(1028, 538)
+
+[node name="MushroomSwitch2" parent="." instance=ExtResource("4_hu6j5")]
+position = Vector2(94, 532)
+switch_type = 3
+
+[node name="MushroomSwitch3" parent="." instance=ExtResource("4_hu6j5")]
+position = Vector2(397, 397)
+switch_type = 2
+
+[node name="MushroomSwitch4" parent="." instance=ExtResource("4_hu6j5")]
+position = Vector2(718, 405)
+switch_type = 4
 
 [node name="Enemy" parent="." instance=ExtResource("5_qsttf")]
 position = Vector2(719, 547)
