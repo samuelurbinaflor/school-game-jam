@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcgcsjd3eq21l"]
+
+[ext_resource type="Script" uid="uid://dswow2xdhhxwj" path="res://scripts/test_level.gd" id="1_xrmvu"]
+[ext_resource type="Texture2D" uid="uid://d3ialfdypeb84" path="res://assets/objects/platform.png" id="2_rwtji"]
+[ext_resource type="PackedScene" uid="uid://b7fekfvyoi1a6" path="res://scenes/player.tscn" id="3_aqu4s"]
+[ext_resource type="PackedScene" uid="uid://dg8htv2ktep6" path="res://scenes/mushroomSwitch.tscn" id="4_hu6j5"]
+[ext_resource type="PackedScene" uid="uid://dqibeisegp8kd" path="res://scenes/enemy.tscn" id="5_qsttf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sir0p"]
+size = Vector2(1150, 20)
+
+[node name="TestLevel" type="Node2D"]
+script = ExtResource("1_xrmvu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576, 577)
+shape = SubResource("RectangleShape2D_sir0p")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(576, 586.5)
+scale = Vector2(18.09375, 2.8125)
+texture = ExtResource("2_rwtji")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.4745098)
+offset_right = 1149.0
+offset_bottom = 642.0
+mouse_filter = 2
+
+[node name="Player" parent="." instance=ExtResource("3_aqu4s")]
+position = Vector2(229, 496)
+
+[node name="MushroomSwitch" parent="." instance=ExtResource("4_hu6j5")]
+position = Vector2(1028, 538)
+
+[node name="MushroomSwitch2" parent="." instance=ExtResource("4_hu6j5")]
+position = Vector2(94, 532)
+switch_type = 3
+
+[node name="MushroomSwitch3" parent="." instance=ExtResource("4_hu6j5")]
+position = Vector2(397, 397)
+switch_type = 2
+
+[node name="MushroomSwitch4" parent="." instance=ExtResource("4_hu6j5")]
+position = Vector2(718, 405)
+switch_type = 4
+
+[node name="Enemy" parent="." instance=ExtResource("5_qsttf")]
+position = Vector2(719, 547)
+
+[node name="Enemy2" parent="." instance=ExtResource("5_qsttf")]
+position = Vector2(404, 541)
+enemy_type = 1
