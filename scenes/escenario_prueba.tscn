@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dei1h67bf10o"]
+
+[ext_resource type="Texture2D" uid="uid://d3ialfdypeb84" path="res://assets/objects/platform.png" id="1_m81e1"]
+[ext_resource type="PackedScene" uid="uid://b7fekfvyoi1a6" path="res://scenes/player.tscn" id="2_tql2w"]
+[ext_resource type="PackedScene" uid="uid://dfqlbu1qlp6vl" path="res://scenes/enemigo.tscn" id="3_iamcd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_amoky"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tql2w"]
+size = Vector2(877, 57)
+
+[node name="escenario-prueba" type="Node2D"]
+position = Vector2(227, 548)
+
+[node name="plataforma" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_amoky")
+
+[node name="Sprite2D" type="Sprite2D" parent="plataforma"]
+position = Vector2(230.37497, -2.5)
+scale = Vector2(13.707031, 3.8125033)
+texture = ExtResource("1_m81e1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma"]
+position = Vector2(229.5, -2.5)
+shape = SubResource("RectangleShape2D_tql2w")
+
+[node name="Player" parent="." instance=ExtResource("2_tql2w")]
+position = Vector2(-113, -62)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+
+[node name="enemigo" parent="." instance=ExtResource("3_iamcd")]
+light_mask = 33
+position = Vector2(120.99999, -45)
+scale = Vector2(1.3073518, 1.1991593)
