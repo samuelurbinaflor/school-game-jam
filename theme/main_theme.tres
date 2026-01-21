@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://chd4lg26jo6hf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5fetd"]
+bg_color = Color(0.11764706, 0.6627451, 0.8, 0)
+
+[resource]
+BoxContainer/constants/separation = 16
+MarginContainer/constants/margin_bottom = 150
+MarginContainer/constants/margin_left = 150
+MarginContainer/constants/margin_right = 150
+MarginContainer/constants/margin_top = 150
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_5fetd")
+TabContainer/constants/tab_separation = 10
+TabContainer/font_sizes/font_size = 24
