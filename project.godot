@@ -10,21 +10,25 @@ config_version=5
 
 [application]
 
-config/name="school game jam"
-run/main_scene="uid://bcgcsjd3eq21l"
+config/name="Cordynvasion"
+run/main_scene="uid://cnn8l7okgkd4v"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 config/autoload/GameState="res://scripts/game_state.gd"
 
 [autoload]
 
+GameHud="*res://scenes/gui/game_HUD.tscn"
 GameState="*res://scripts/game_state.gd"
+AudioPlayer="*res://scripts/audio_player.gd"
+ConfigManager="*res://scripts/config_manager.gd"
 
 [display]
 
 window/size/viewport_width=768
 window/size/viewport_height=512
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://biieoodqqngyp"
 
 [gui]
 

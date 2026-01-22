@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://d1tm7ld5y1rqp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g7hyj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4bvvk"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+
+[resource]
+/styles/normal = SubResource("StyleBoxEmpty_g7hyj")
+Button/styles/disabled = SubResource("StyleBoxEmpty_4bvvk")
+Button/styles/focus = SubResource("StyleBoxEmpty_4bvvk")
+Button/styles/hover = SubResource("StyleBoxEmpty_4bvvk")
+Button/styles/hover_pressed = SubResource("StyleBoxEmpty_4bvvk")
+Button/styles/normal = SubResource("StyleBoxEmpty_4bvvk")
+Button/styles/pressed = SubResource("StyleBoxEmpty_4bvvk")
