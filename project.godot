@@ -14,6 +14,18 @@ config/name="school game jam"
 run/main_scene="uid://bcgcsjd3eq21l"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+config/autoload/GameState="res://scripts/game_state.gd"
+
+[display]
+
+window/size/viewport_width=768
+window/size/viewport_height=512
+window/stretch/mode="canvas_items"
+
+[gui]
+
+theme/custom="uid://chd4lg26jo6hf"
+theme/custom_font="uid://c4f3pey4mhvhs"
 
 [autoload]
 
@@ -44,6 +56,10 @@ moverIzq={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://translations/ui_translations.en.translation", "res://translations/ui_translations.es.translation")
+
 [layer_names]
 
 2d_physics/layer_1="Player"
@@ -52,6 +68,6 @@ moverIzq={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_filter=3
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
