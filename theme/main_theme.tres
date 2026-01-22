@@ -11,4 +11,4 @@ MarginContainer/constants/margin_right = 150
 MarginContainer/constants/margin_top = 150
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_5fetd")
 TabContainer/constants/tab_separation = 10
-TabContainer/font_sizes/font_size = 24
+TabContainer/font_sizes/font_size = 22
