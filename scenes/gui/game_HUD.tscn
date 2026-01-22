@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://yyt2l2ctk1dt"]
+
+[ext_resource type="Script" uid="uid://c8wtqmtn4y2q2" path="res://scripts/gui/gui.gd" id="1_2nda2"]
+[ext_resource type="PackedScene" uid="uid://l7x847j376ng" path="res://scenes/gui/settings.tscn" id="1_je58v"]
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource("1_2nda2")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 212.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 101
+text = "placeholder"
+horizontal_alignment = 1
+
+[node name="Settings" parent="." instance=ExtResource("1_je58v")]
+visible = false
+z_index = 202
