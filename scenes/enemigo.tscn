@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://2njhiku1u6m7"]
+[gd_scene load_steps=4 format=3 uid="uid://dfqlbu1qlp6vl"]
 
 [ext_resource type="Script" uid="uid://cl85o6vh3j8jb" path="res://scripts/enemigo.gd" id="1_hlx46"]
 [ext_resource type="Texture2D" uid="uid://qedfp0dlx7c" path="res://assets/objects/box.png" id="2_1yqjy"]
@@ -9,6 +9,8 @@ size = Vector2(22, 20)
 [node name="enemigo" type="CharacterBody2D"]
 position = Vector2(29, 28)
 scale = Vector2(0.6920744, 0.6808883)
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_hlx46")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

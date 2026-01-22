@@ -5,14 +5,14 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vm8km"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8rs8"]
-size = Vector2(60, 12)
+size = Vector2(60, 11)
 
 [node name="Flower_platform" type="StaticBody2D"]
 collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_vm8km")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 10)
+position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_s8rs8")
 one_way_collision = true
 
