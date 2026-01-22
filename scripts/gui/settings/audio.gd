@@ -105,6 +105,7 @@ func _update_mute_button_icon(bus_name: String) -> void:
 		icon_path = "res://assets/ui/lucid/vol2.png"
 	else:
 		icon_path = "res://assets/ui/lucid/vol3.png"
+
 	mute_button.icon = load(icon_path)
 
 
