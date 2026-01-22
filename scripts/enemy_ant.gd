@@ -23,10 +23,10 @@ func _physics_process(delta):
 		move_and_slide()
 		return
 		
-	if GameState.current_mode == GameState.WorldMode.RED:
-		velocity = Vector2.ZERO
-		move_and_slide()
-		return
+	#if GameState.current_mode == GameState.WorldMode.RED:
+	#	velocity = Vector2.ZERO
+	#	move_and_slide()
+	#	return
 	
 	if not is_on_floor():
 		velocity.y += gravity

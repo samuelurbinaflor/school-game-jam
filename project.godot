@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 config/autoload/GameState="res://scripts/game_state.gd"
 
+[autoload]
+
+GameState="*res://scripts/game_state.gd"
+
 [display]
 
 window/size/viewport_width=768
@@ -26,19 +30,6 @@ window/stretch/mode="canvas_items"
 
 theme/custom="uid://chd4lg26jo6hf"
 theme/custom_font="uid://c4f3pey4mhvhs"
-
-[autoload]
-
-GameState="*res://scripts/game_state.gd"
-
-[display]
-
-window/size/viewport_width=768
-window/size/viewport_height=512
-
-[autoload]
-
-GameState="*res://scripts/game_state.gd"
 
 [input]
 
