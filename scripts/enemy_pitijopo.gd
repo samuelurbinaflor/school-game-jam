@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 @onready var RayDere = $RayCastDere
 @onready var RayIzq = $RayCastIzq
-#@onready var RayDereAbajo = $RayCastAbajoDere
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var detectaArea2D: Area2D = $Area2D
+@onready var collision = $CollisionShape2D
 
 var vel = 120
 var moveRight = true
@@ -15,21 +15,24 @@ var posicion = Vector2.ZERO
 var normal_color: Color = Color(0.104, 0.626, 0.228, 1.0)
 var corrupted_color = Color(0.3, 0.6, 1.0) 
 
+#esto para el patron de vuelo (horizontal, vertical, estatico, en circulos porsiacaso...)
 enum patronVuelo { float, horizontal, vertical, circle }
 @export var vuelo: patronVuelo = patronVuelo.horizontal
-@export var distanciaV = 100 #distancia max v
-@export var distanciaH = 150 #distancia max h
+@export var distanciaV = 5 #distancia max v
+@export var distanciaH = 100 #distancia max h
 @export var Rcirculo = 50
 @export var velCirculo = 1
+@export var minMood = 4
+@export var maxMood = 8
+var normalMood = 6
+var moods = [patronVuelo.float, patronVuelo.horizontal, patronVuelo.vertical]
 
 func _ready():
 	GameState.mode_changed.connect(worldModeChanged)
 	sprite.modulate = normal_color
 	posicion = global_position
-	
-	#if detectaArea2D:
-	#	detectaArea2D.body_entered.connect(_on_area_2d_body_entered)
-	#	detectaArea2D.area_entered.connect(_on_area_2d_area_entered)
+	randomize()
+	normalMood = randf_range(minMood, maxMood)
 	
 func _physics_process(delta):
 	time += delta
@@ -37,6 +40,11 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 		move_and_slide()
 		return
+	
+	time += delta
+	if time >= normalMood:
+		cambiaMood()
+		time = 0.0
 	
 	match vuelo:
 		patronVuelo.float:
@@ -117,6 +125,9 @@ func corrupt():
 		is_corrupted = true
 		sprite.modulate = corrupted_color
 		print("Pitijopo corrompido?")
+		
+		if collision:
+			collision.set_deferred("disabled", true)
 	
 	#pequeña animacion
 	var tween = create_tween()
@@ -124,6 +135,16 @@ func corrupt():
 	tween.tween_property(sprite, "scale", Vector2(1.0, 1.0), 0.2)
 
 func worldModeChanged(new_mode):
-	if new_mode != GameState.WorldMode.RED:
-		is_corrupted = false
+	if not is_corrupted and new_mode != GameState.WorldMode.RED:
 		sprite.modulate = normal_color
+
+func cambiaMood():
+	var newMood = vuelo
+	while newMood == vuelo:
+		newMood = moods[randi() % moods.size()]
+	vuelo = newMood
+	posicion = global_position  # Resetear posición de referencia
+	time = 0.0
+	
+	normalMood = randf_range(minMood, maxMood)
+	print("Libélula cambió a patrón: ", vuelo)
