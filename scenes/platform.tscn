@@ -1,12 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bakxgidg8m81q"]
+[gd_scene load_steps=4 format=3 uid="uid://chiagookyitcl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4t87"]
+[ext_resource type="Script" uid="uid://dewef7wt0167r" path="res://scripts/platform.gd" id="1_nlgqw"]
+[ext_resource type="Texture2D" uid="uid://b61noi38g1qe3" path="res://assets/sprites/ColorBlock.png" id="2_507ja"]
 
-[node name="Platform" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1ckp"]
+size = Vector2(32, 32)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Plataform" type="StaticBody2D"]
+collision_layer = 2
+script = ExtResource("1_nlgqw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_v4t87")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_n1ckp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_507ja")
+hframes = 4
+vframes = 2
