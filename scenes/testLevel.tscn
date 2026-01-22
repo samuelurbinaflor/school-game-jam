@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcgcsjd3eq21l"]
+[gd_scene load_steps=9 format=3 uid="uid://bcgcsjd3eq21l"]
 
 [ext_resource type="Script" uid="uid://dswow2xdhhxwj" path="res://scripts/test_level.gd" id="1_xrmvu"]
 [ext_resource type="Texture2D" uid="uid://d3ialfdypeb84" path="res://assets/objects/platform.png" id="2_rwtji"]
-[ext_resource type="PackedScene" uid="uid://b7fekfvyoi1a6" path="res://scenes/player.tscn" id="3_aqu4s"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="3_aqu4s"]
 [ext_resource type="PackedScene" uid="uid://dnovuc1y15248" path="res://scenes/mushroomSwitch.tscn" id="4_hu6j5"]
 [ext_resource type="PackedScene" uid="uid://dqibeisegp8kd" path="res://scenes/enemy.tscn" id="5_qsttf"]
 [ext_resource type="PackedScene" uid="uid://dfqlbu1qlp6vl" path="res://scenes/enemy_ant.tscn" id="6_rwtji"]
+[ext_resource type="PackedScene" uid="uid://cui63m8h1wfx2" path="res://scenes/enemy_pitijopo.tscn" id="7_aqu4s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sir0p"]
 size = Vector2(1150, 20)
@@ -38,18 +39,30 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("3_aqu4s")]
 position = Vector2(135, 500)
+scale = Vector2(1.0877925, 1.1107492)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(1, -60)
 
 [node name="MushroomSwitch" parent="." instance=ExtResource("4_hu6j5")]
 position = Vector2(1028, 538)
 
 [node name="Enemy" parent="." instance=ExtResource("5_qsttf")]
-position = Vector2(719, 547)
+position = Vector2(719, 494)
 
 [node name="Enemy2" parent="." instance=ExtResource("5_qsttf")]
-position = Vector2(404, 541)
+position = Vector2(404, 488)
 enemy_type = 1
 
 [node name="enemy_ant" parent="." instance=ExtResource("6_rwtji")]
-position = Vector2(323.99997, 461)
+position = Vector2(849, 544)
+scale = Vector2(1.1015697, 1.0990735)
+
+[node name="enemy_pitijopo2" parent="." instance=ExtResource("7_aqu4s")]
+position = Vector2(256, 316)
+scale = Vector2(1.2988586, 1.2830789)
+vuelo = 3
+
+[node name="enemy_pitijopo" parent="." instance=ExtResource("7_aqu4s")]
+position = Vector2(480, 146)
+scale = Vector2(1.1396748, 1.1327307)
