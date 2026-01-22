@@ -3,7 +3,7 @@ extends CharacterBody2D
 const vel = 200.0
 const jumpVel = -600.0 #era constante
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-#@onready var spriteAnim = $AnimatedSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -18,17 +18,29 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, vel)
 	move_and_slide()
-
-"""	if direc > 0:
-		spriteAnim.flip_h = false
-	elif direc < 0:
-		spriteAnim.flip_h = true"""
 	
-"""	#para "controlar" las animaciones
+	# ───── GIRAR SPRITE ─────
+	if direc > 0:
+		animated_sprite_2d.flip_h = false
+	elif direc < 0:
+		animated_sprite_2d.flip_h = true
+
+
+	# ───── ANIMACIONES ─────
 	if is_on_floor():
 		if direc == 0:
-			spriteAnim.play("idle")
+			play_anim("idle")
 		else:
-			spriteAnim.play("corre")
+			play_anim("walk")
 	else:
-		spriteAnim.play("salta")"""
+		if velocity.y < 0:
+			play_anim("jump")
+		else:
+			play_anim("fall")
+
+
+		
+		
+func play_anim(name: String):
+	if animated_sprite_2d.animation != name:
+		animated_sprite_2d.play(name)

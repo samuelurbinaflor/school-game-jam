@@ -30,7 +30,7 @@ func _on_area_entered(area):
 		try_corrupt()
 
 func _on_body_entered(body):
-	if body.name == "Player" and not is_corrupted:
+	if body.is_in_group("player") and not is_corrupted:
 		try_corrupt()
 
 func try_corrupt():

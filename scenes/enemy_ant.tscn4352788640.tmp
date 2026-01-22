@@ -148,13 +148,12 @@ size = Vector2(37.568222, 60.21546)
 
 [node name="enemy_ant" type="CharacterBody2D"]
 scale = Vector2(0.6920744, 0.6808883)
-collision_layer = 4
 script = ExtResource("1_hlx46")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.99999994, 1)
 sprite_frames = SubResource("SpriteFrames_2ne1j")
-animation = &"corrupted"
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 20.561375)
@@ -163,7 +162,6 @@ shape = SubResource("RectangleShape2D_8h3ht")
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(0.9999999, 1)
-collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 0.7343349)
