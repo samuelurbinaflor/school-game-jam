@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://cui63m8h1wfx2"]
+
+[ext_resource type="Script" uid="uid://bol7jwo1h237a" path="res://scripts/enemy_pitijopo.gd" id="1_usb33"]
+[ext_resource type="Texture2D" uid="uid://qedfp0dlx7c" path="res://assets/objects/box.png" id="2_cd1sh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8h3ht"]
+size = Vector2(20.22904, 19.092707)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pe0jf"]
+size = Vector2(37.568222, 35.248077)
+
+[node name="enemy_pitijopo" type="CharacterBody2D"]
+position = Vector2(31.000002, 28.999998)
+scale = Vector2(0.6920744, 0.6808883)
+script = ExtResource("1_usb33")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.8146973e-06, 1.0000038)
+scale = Vector2(0.87190294, 0.7932728)
+texture = ExtResource("2_cd1sh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.8146973e-06, 0.73433685)
+scale = Vector2(1.2682223, 1.2692366)
+shape = SubResource("RectangleShape2D_8h3ht")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 1.0000038)
+scale = Vector2(0.9999999, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3.8146973e-06, 0.46866608)
+shape = SubResource("RectangleShape2D_pe0jf")
+
+[node name="RayCastIzq" type="RayCast2D" parent="."]
+position = Vector2(5.779724, 0)
+scale = Vector2(1.3467816, 1)
+target_position = Vector2(-22, 0)
+
+[node name="RayCastDere" type="RayCast2D" parent="."]
+position = Vector2(-5.779724, 0)
+scale = Vector2(0.9999999, 1)
+target_position = Vector2(28.898628, 3.8146973e-06)
+
+[node name="RayCastAbajoDere" type="RayCast2D" parent="."]
+position = Vector2(11.559453, 4.406009)
+scale = Vector2(0.9999998, 1.7049623)
+target_position = Vector2(0, 16.155369)
