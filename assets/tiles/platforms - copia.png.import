@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dibr7mx1iux4b"
-path="res://.godot/imported/lakes.png-228e88b7cd79423aa4b3ad876e839ac8.ctex"
+uid="uid://3cqkf4pa2qkj"
+path="res://.godot/imported/platforms - copia.png-3405cb609cc074fcc4dc5e8e5dc64da1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/lakes.png"
-dest_files=["res://.godot/imported/lakes.png-228e88b7cd79423aa4b3ad876e839ac8.ctex"]
+source_file="res://assets/tiles/platforms - copia.png"
+dest_files=["res://.godot/imported/platforms - copia.png-3405cb609cc074fcc4dc5e8e5dc64da1.ctex"]
 
 [params]
 
