@@ -105,7 +105,7 @@ func fly_circle(delta): #mov circular
 	velocity = Vector2.ZERO
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "Player" and not is_corrupted:
+	if body.is_in_group("player") and not is_corrupted:
 		corrupt()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

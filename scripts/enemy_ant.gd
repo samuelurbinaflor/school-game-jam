@@ -17,6 +17,7 @@ func _ready():
 	GameState.mode_changed.connect(worldModeChanged)
 	#sprite.modulate = normal_color
 	
+	
 func _physics_process(delta):
 	if is_corrupted:
 		velocity = Vector2.ZERO
@@ -66,6 +67,7 @@ func vuelta():
 func worldModeChanged(new_mode):
 	if is_corrupted:
 		return
+
 	#if new_mode != GameState.WorldMode.RED:
 		#sprite.modulate = normal_color
 
@@ -76,7 +78,7 @@ func worldModeChanged(new_mode):
 	#print("El enemigo ahora es azul")
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "Player" and GameState.current_mode == GameState.WorldMode.RED and not is_corrupted:
+	if body.is_in_group("player") and GameState.current_mode == GameState.WorldMode.RED and not is_corrupted:
 		print("El enemigo ahora esta corrupto")
 		#corrupt()
 		is_corrupted = true

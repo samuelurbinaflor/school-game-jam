@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcgcsjd3eq21l"]
+[gd_scene load_steps=9 format=3 uid="uid://bcgcsjd3eq21l"]
 
 [ext_resource type="Script" uid="uid://dswow2xdhhxwj" path="res://scripts/test_level.gd" id="1_xrmvu"]
 [ext_resource type="Texture2D" uid="uid://d3ialfdypeb84" path="res://assets/objects/platform.png" id="2_rwtji"]
 [ext_resource type="PackedScene" uid="uid://b7fekfvyoi1a6" path="res://scenes/player.tscn" id="3_aqu4s"]
 [ext_resource type="PackedScene" uid="uid://dnovuc1y15248" path="res://scenes/mushroomSwitch.tscn" id="4_hu6j5"]
-[ext_resource type="PackedScene" uid="uid://dqibeisegp8kd" path="res://scenes/enemy.tscn" id="5_qsttf"]
 [ext_resource type="PackedScene" uid="uid://dfqlbu1qlp6vl" path="res://scenes/enemy_ant.tscn" id="6_rwtji"]
 [ext_resource type="PackedScene" uid="uid://cui63m8h1wfx2" path="res://scenes/enemy_pitijopo.tscn" id="7_aqu4s"]
 [ext_resource type="PackedScene" uid="uid://b02dw1kevpspe" path="res://scenes/objects/flower_platform.tscn" id="8_hu6j5"]
@@ -48,19 +47,12 @@ position = Vector2(1, -60)
 [node name="MushroomSwitch" parent="." instance=ExtResource("4_hu6j5")]
 position = Vector2(1028, 538)
 
-[node name="Enemy" parent="." instance=ExtResource("5_qsttf")]
-position = Vector2(719, 494)
-
-[node name="Enemy2" parent="." instance=ExtResource("5_qsttf")]
-position = Vector2(404, 488)
-enemy_type = 1
-
 [node name="enemy_ant" parent="." instance=ExtResource("6_rwtji")]
 position = Vector2(253.00006, 508)
 scale = Vector2(1.1015697, 1.0990735)
 
 [node name="enemy_pitijopo2" parent="." instance=ExtResource("7_aqu4s")]
-position = Vector2(256, 316)
+position = Vector2(326, 517)
 scale = Vector2(1.2988586, 1.2830789)
 vuelo = 3
 
