@@ -64,9 +64,15 @@ func _init_audio_buses() -> void:
 		if plus_button != null:
 			plus_button.pressed.connect(Callable(self, "_on_plus_pressed").bind(bus_name))
 		var saved_volume: float = get_node("/root/ConfigManager").get_setting(
-			"audio", bus_name + "_volume", 50.0)
+			"audio",
+			bus_name + "_volume",
+			50.0,
+		)
 		var saved_muted: bool = get_node("/root/ConfigManager").get_setting(
-			"audio", bus_name + "_muted", false)
+			"audio",
+			bus_name + "_muted",
+			false,
+		)
 		var deci = slider_to_deci(saved_volume)
 		AudioServer.set_bus_volume_db(audio_buses[bus_name], deci)
 		AudioServer.set_bus_mute(audio_buses[bus_name], saved_muted)
