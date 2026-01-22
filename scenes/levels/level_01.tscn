@@ -1,21 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://c7hqnf5b5k557"]
+[gd_scene load_steps=8 format=4 uid="uid://c7hqnf5b5k557"]
 
-[ext_resource type="Texture2D" uid="uid://dnj3ifqwi650f" path="res://assets/tiles/colors_platform.png" id="1_2djvx"]
 [ext_resource type="Texture2D" uid="uid://rdcgkupjidev" path="res://assets/tiles/grid_01.png" id="2_uvc87"]
 [ext_resource type="Texture2D" uid="uid://cljhmmsm5v2du" path="res://assets/tiles/black-tiles.png" id="3_qdh5e"]
 [ext_resource type="Texture2D" uid="uid://1tbsqik2e3ul" path="res://assets/tiles/platforms.png" id="4_uvc87"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_50wog"]
-texture = ExtResource("1_2djvx")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ey3t"]
 texture = ExtResource("2_uvc87")
@@ -39,25 +26,22 @@ texture = ExtResource("3_qdh5e")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdh5e"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2djvx"]
 texture = ExtResource("4_uvc87")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
 2:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_kfebt"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 3
-sources/1 = SubResource("TileSetAtlasSource_50wog")
 sources/2 = SubResource("TileSetAtlasSource_1ey3t")
 sources/3 = SubResource("TileSetAtlasSource_t0hvh")
-sources/4 = SubResource("TileSetAtlasSource_qdh5e")
+sources/5 = SubResource("TileSetAtlasSource_2djvx")
 
 [node name="level_01" type="Node2D"]
 
