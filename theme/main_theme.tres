@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=23 format=3 uid="uid://chd4lg26jo6hf"]
+[gd_resource type="Theme" load_steps=27 format=3 uid="uid://chd4lg26jo6hf"]
 
 [ext_resource type="Texture2D" uid="uid://dnlkyuxixkck0" path="res://assets/Ornate Retro UI/BrownUP.png" id="1_afw5t"]
 [ext_resource type="Texture2D" uid="uid://qhw4kj1j0qot" path="res://assets/Ornate Retro UI/panelFull.png" id="1_os614"]
@@ -120,6 +120,23 @@ texture_margin_top = 30.0
 texture_margin_right = 30.0
 texture_margin_bottom = 30.0
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_adhqp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8g5i"]
+bg_color = Color(0.24313726, 0.20392157, 0.20392157, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.36078432, 0.30588236, 0.29411766, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a7tdx"]
+bg_color = Color(0.2, 0.15686275, 0.16862746, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_adhqp"]
 texture = ExtResource("1_os614")
 texture_margin_left = 30.0
@@ -143,6 +160,8 @@ texture_margin_right = 24.0
 texture_margin_bottom = 8.0
 expand_margin_bottom = 6.0
 modulate_color = Color(0.68307734, 0.6830774, 0.68307734, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_75705"]
 
 [resource]
 BoxContainer/constants/separation = 0
@@ -168,6 +187,10 @@ MarginContainer/constants/margin_left = 150
 MarginContainer/constants/margin_right = 150
 MarginContainer/constants/margin_top = 150
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_cibxr")
+PopupMenu/font_sizes/font_size = 24
+PopupMenu/styles/embedded_border = SubResource("StyleBoxLine_adhqp")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_m8g5i")
+PopupPanel/styles/panel = SubResource("StyleBoxFlat_a7tdx")
 TabContainer/constants/icon_separation = 9
 TabContainer/constants/tab_separation = 18
 TabContainer/font_sizes/font_size = 22
@@ -177,3 +200,4 @@ TabContainer/styles/tab_focus = SubResource("StyleBoxTexture_m8g5i")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_m8g5i")
 TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_m8g5i")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_a7tdx")
+Tree/styles/panel = SubResource("StyleBoxTexture_75705")

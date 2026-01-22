@@ -64,9 +64,15 @@ func _init_audio_buses() -> void:
 		if plus_button != null:
 			plus_button.pressed.connect(Callable(self, "_on_plus_pressed").bind(bus_name))
 		var saved_volume: float = get_node("/root/ConfigManager").get_setting(
-			"audio", bus_name + "_volume", 50.0)
+			"audio",
+			bus_name + "_volume",
+			50.0,
+		)
 		var saved_muted: bool = get_node("/root/ConfigManager").get_setting(
-			"audio", bus_name + "_muted", false)
+			"audio",
+			bus_name + "_muted",
+			false,
+		)
 		var deci = slider_to_deci(saved_volume)
 		AudioServer.set_bus_volume_db(audio_buses[bus_name], deci)
 		AudioServer.set_bus_mute(audio_buses[bus_name], saved_muted)
@@ -92,14 +98,13 @@ func _update_mute_button_icon(bus_name: String) -> void:
 
 	var icon_path: String
 	if value == 0:
-		icon_path = "res://assets/ui/vol0.png"
+		icon_path = "res://assets/ui/lucid/vol0.png"
 	elif value <= 33.33:
-		icon_path = "res://assets/ui/vol1.png"
+		icon_path = "res://assets/ui/lucid/vol1.png"
 	elif value <= 66.66:
-		icon_path = "res://assets/ui/vol2.png"
+		icon_path = "res://assets/ui/lucid/vol2.png"
 	else:
-		icon_path = "res://assets/ui/vol3.png"
-
+		icon_path = "res://assets/ui/lucid/vol3.png"
 	mute_button.icon = load(icon_path)
 
 
