@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="school game jam"
-run/main_scene="uid://c7hqnf5b5k557"
+run/main_scene="uid://yahmxkdpyf6v"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 config/autoload/GameState="res://scripts/game_state.gd"
