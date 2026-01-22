@@ -36,6 +36,10 @@ GameState="*res://scripts/game_state.gd"
 window/size/viewport_width=768
 window/size/viewport_height=512
 
+[autoload]
+
+GameState="*res://scripts/game_state.gd"
+
 [input]
 
 salto={
