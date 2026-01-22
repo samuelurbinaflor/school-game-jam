@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dei1h67bf10o"]
 
 [ext_resource type="Texture2D" uid="uid://d3ialfdypeb84" path="res://assets/objects/platform.png" id="1_m81e1"]
-[ext_resource type="PackedScene" uid="uid://b7fekfvyoi1a6" path="res://scenes/player.tscn" id="2_tql2w"]
-[ext_resource type="PackedScene" uid="uid://dfqlbu1qlp6vl" path="res://scenes/enemigo.tscn" id="3_iamcd"]
+[ext_resource type="PackedScene" uid="uid://b7fekfvyoi1a6" path="res://scenes/Player.tscn" id="2_tql2w"]
+[ext_resource type="PackedScene" uid="uid://dfqlbu1qlp6vl" path="res://scenes/enemy_ant.tscn" id="3_iamcd"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_amoky"]
 

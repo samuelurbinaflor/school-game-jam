@@ -6,12 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://bakxgidg8m81q" path="res://scenes/platform.tscn" id="4_aqu4s"]
 [ext_resource type="PackedScene" uid="uid://dnovuc1y15248" path="res://scenes/mushroomSwitch.tscn" id="4_hu6j5"]
 [ext_resource type="PackedScene" uid="uid://dqibeisegp8kd" path="res://scenes/enemy.tscn" id="5_qsttf"]
-[ext_resource type="PackedScene" uid="uid://dfqlbu1qlp6vl" path="res://scenes/enemigo.tscn" id="7_hu6j5"]
+[ext_resource type="PackedScene" uid="uid://dfqlbu1qlp6vl" path="res://scenes/enemy_ant.tscn" id="6_rwtji"]
+[ext_resource type="PackedScene" uid="uid://cui63m8h1wfx2" path="res://scenes/enemy_pitijopo.tscn" id="7_aqu4s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sir0p"]
 size = Vector2(1150, 20)
 
 [node name="TestLevel" type="Node2D"]
+position = Vector2(-80, -88)
 script = ExtResource("1_xrmvu")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -29,9 +31,12 @@ texture = ExtResource("2_rwtji")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0.4745098)
-offset_right = 1149.0
-offset_bottom = 642.0
+offset_left = -80.0
+offset_top = -88.0
+offset_right = 1069.0
+offset_bottom = 554.0
 mouse_filter = 2
+<<<<<<< HEAD
 
 [node name="Plataform" parent="." instance=ExtResource("4_aqu4s")]
 position = Vector2(192, 452)
@@ -50,14 +55,21 @@ platform_type = 3
 
 [node name="Player" parent="." instance=ExtResource("3_aqu4s")]
 position = Vector2(115, 448)
+=======
+metadata/_edit_use_anchors_ = true
 
-[node name="enemigo" parent="." instance=ExtResource("7_hu6j5")]
-visible = false
-position = Vector2(55.00003, 219)
+[node name="Player" parent="." instance=ExtResource("3_aqu4s")]
+position = Vector2(135, 500)
+scale = Vector2(1.0877925, 1.1107492)
+>>>>>>> main
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(1, -60)
 
 [node name="MushroomSwitch" parent="." instance=ExtResource("4_hu6j5")]
 position = Vector2(706, 448)
 
+<<<<<<< HEAD
 [node name="MushroomSwitch2" parent="." instance=ExtResource("4_hu6j5")]
 position = Vector2(39, 467)
 switch_type = 3
@@ -70,10 +82,24 @@ switch_type = 2
 position = Vector2(515, 382)
 switch_type = 4
 
+=======
+>>>>>>> main
 [node name="Enemy" parent="." instance=ExtResource("5_qsttf")]
-visible = false
-position = Vector2(719, 547)
+position = Vector2(719, 494)
 
 [node name="Enemy2" parent="." instance=ExtResource("5_qsttf")]
-visible = false
-position = Vector2(404, 541)
+position = Vector2(404, 488)
+enemy_type = 1
+
+[node name="enemy_ant" parent="." instance=ExtResource("6_rwtji")]
+position = Vector2(849, 544)
+scale = Vector2(1.1015697, 1.0990735)
+
+[node name="enemy_pitijopo2" parent="." instance=ExtResource("7_aqu4s")]
+position = Vector2(256, 316)
+scale = Vector2(1.2988586, 1.2830789)
+vuelo = 3
+
+[node name="enemy_pitijopo" parent="." instance=ExtResource("7_aqu4s")]
+position = Vector2(480, 146)
+scale = Vector2(1.1396748, 1.1327307)

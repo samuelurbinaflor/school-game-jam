@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const vel = 200.0
-const jumpVel = -400.0
+const jumpVel = -600.0 #era constante
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 #@onready var spriteAnim = $AnimatedSprite2D
 
