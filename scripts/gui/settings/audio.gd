@@ -92,13 +92,13 @@ func _update_mute_button_icon(bus_name: String) -> void:
 
 	var icon_path: String
 	if value == 0:
-		icon_path = "res://assets/ui/vol0.png"
+		icon_path = "res://assets/ui/lucid/vol0.png"
 	elif value <= 33.33:
-		icon_path = "res://assets/ui/vol1.png"
+		icon_path = "res://assets/ui/lucid/vol1.png"
 	elif value <= 66.66:
-		icon_path = "res://assets/ui/vol2.png"
+		icon_path = "res://assets/ui/lucid/vol2.png"
 	else:
-		icon_path = "res://assets/ui/vol3.png"
+		icon_path = "res://assets/ui/lucid/vol3.png"
 
 	mute_button.icon = load(icon_path)
 
