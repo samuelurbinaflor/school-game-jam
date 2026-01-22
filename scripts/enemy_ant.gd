@@ -3,7 +3,6 @@ extends CharacterBody2D
 @onready var RayDere = $RayCastDere
 @onready var RayIzq = $RayCastIzq
 @onready var RayDereAbajo = $RayCastAbajoDere
-@onready var sprite: Sprite2D = $Sprite2D
 @onready var area2D = $Area2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -16,11 +15,12 @@ var corrupted_color = Color(0.3, 0.6, 1.0)
 
 func _ready():
 	GameState.mode_changed.connect(worldModeChanged)
-	sprite.modulate = normal_color
+	#sprite.modulate = normal_color
 	
 func _physics_process(delta):
 	if is_corrupted:
 		velocity = Vector2.ZERO
+		play_anim("corrupted")
 		move_and_slide()
 		return
 		
@@ -31,11 +31,9 @@ func _physics_process(delta):
 	
 	if not is_on_floor():
 		velocity.y += gravity
-		animated_sprite_2d.play("walk")
 		
 	else: 
 		velocity.y = 0
-		animated_sprite_2d.play("idle")
 	
 	if moveLeft:
 		velocity.x = -vel
@@ -43,6 +41,13 @@ func _physics_process(delta):
 		velocity.x = vel
 	move_and_slide()
 	vuelta()
+	
+	# ───── ANIMACIONES ─────
+	if velocity.x == 0:
+		play_anim("idle")
+	else:
+		play_anim("walk")
+		
 
 func vuelta():
 	var gira = false
@@ -61,8 +66,8 @@ func vuelta():
 func worldModeChanged(new_mode):
 	if is_corrupted:
 		return
-	if new_mode != GameState.WorldMode.RED:
-		sprite.modulate = normal_color
+	#if new_mode != GameState.WorldMode.RED:
+		#sprite.modulate = normal_color
 
 #func corrupt():
 	#is_corrupted = true
@@ -76,3 +81,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		#corrupt()
 		is_corrupted = true
 		animated_sprite_2d.play("corrupted")
+		
+func play_anim(name: String):
+	if animated_sprite_2d.animation != name:
+		animated_sprite_2d.play(name)

@@ -153,7 +153,7 @@ script = ExtResource("1_hlx46")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.99999994, 1)
 sprite_frames = SubResource("SpriteFrames_2ne1j")
-animation = &"corrupted"
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 20.561375)
