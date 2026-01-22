@@ -27,9 +27,20 @@ func _physics_process(delta):
 
 
 	# ───── ANIMACIONES ─────
-	if not is_on_floor():
-		animated_sprite_2d.play("jump")
-	elif direc == 0:
-		animated_sprite_2d.play("idle")
+	if is_on_floor():
+		if direc == 0:
+			play_anim("idle")
+		else:
+			play_anim("walk")
 	else:
-		animated_sprite_2d.play("walk")
+		if velocity.y < 0:
+			play_anim("jump")
+		else:
+			play_anim("fall")
+
+
+		
+		
+func play_anim(name: String):
+	if animated_sprite_2d.animation != name:
+		animated_sprite_2d.play(name)
