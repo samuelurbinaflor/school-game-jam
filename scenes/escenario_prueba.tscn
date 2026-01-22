@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dei1h67bf10o"]
+[gd_scene load_steps=8 format=3 uid="uid://dei1h67bf10o"]
 
 [ext_resource type="Texture2D" uid="uid://d3ialfdypeb84" path="res://assets/objects/platform.png" id="1_m81e1"]
-[ext_resource type="PackedScene" uid="uid://b7fekfvyoi1a6" path="res://scenes/Player.tscn" id="2_tql2w"]
+[ext_resource type="PackedScene" path="res://scenes/Player.tscn" id="2_tql2w"]
 [ext_resource type="PackedScene" uid="uid://dfqlbu1qlp6vl" path="res://scenes/enemy_ant.tscn" id="3_iamcd"]
+[ext_resource type="PackedScene" uid="uid://cui63m8h1wfx2" path="res://scenes/enemy_pitijopo.tscn" id="4_dy0a3"]
+[ext_resource type="PackedScene" uid="uid://dnovuc1y15248" path="res://scenes/mushroomSwitch.tscn" id="5_jktt2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_amoky"]
 
@@ -32,5 +34,19 @@ position_smoothing_enabled = true
 
 [node name="enemigo" parent="." instance=ExtResource("3_iamcd")]
 light_mask = 33
-position = Vector2(120.99999, -45)
+position = Vector2(136, -71)
 scale = Vector2(1.3073518, 1.1991593)
+collision_layer = 1
+maxMood = 6.0
+
+[node name="enemy_pitijopo" parent="." instance=ExtResource("4_dy0a3")]
+position = Vector2(46, -177)
+scale = Vector2(0.90478474, 0.8164935)
+collision_layer = 1
+collision_mask = 2
+vuelo = 0
+distanciaV = 50
+distanciaH = 200
+
+[node name="MushroomSwitch" parent="." instance=ExtResource("5_jktt2")]
+position = Vector2(-7, -49)
