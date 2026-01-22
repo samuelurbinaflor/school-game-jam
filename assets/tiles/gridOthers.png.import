@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3cqkf4pa2qkj"
-path="res://.godot/imported/platforms - copia.png-3405cb609cc074fcc4dc5e8e5dc64da1.ctex"
+uid="uid://bdy5c5dgb4oej"
+path="res://.godot/imported/gridOthers.png-f368f4440d1f609d36bd718e8137ecba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/platforms - copia.png"
-dest_files=["res://.godot/imported/platforms - copia.png-3405cb609cc074fcc4dc5e8e5dc64da1.ctex"]
+source_file="res://assets/tiles/gridOthers.png"
+dest_files=["res://.godot/imported/gridOthers.png-f368f4440d1f609d36bd718e8137ecba.ctex"]
 
 [params]
 
