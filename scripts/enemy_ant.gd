@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var RayDereAbajo = $RayCastAbajoDere
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var area2D = $Area2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var vel = 100
 var moveLeft = false
@@ -30,8 +31,11 @@ func _physics_process(delta):
 	
 	if not is_on_floor():
 		velocity.y += gravity
+		animated_sprite_2d.play("walk")
+		
 	else: 
 		velocity.y = 0
+		animated_sprite_2d.play("idle")
 	
 	if moveLeft:
 		velocity.x = -vel
@@ -60,13 +64,15 @@ func worldModeChanged(new_mode):
 	if new_mode != GameState.WorldMode.RED:
 		sprite.modulate = normal_color
 
-func corrupt():
-	is_corrupted = true
-	sprite.modulate = corrupted_color
-	print("El enemigo ahora es azul")
+#func corrupt():
+	#is_corrupted = true
+	#animated_sprite_2d.play("corrupted")
+	#sprite.modulate = corrupted_color
+	#print("El enemigo ahora es azul")
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and GameState.current_mode == GameState.WorldMode.RED and not is_corrupted:
-		#sprite = nuevo sprite
 		print("El enemigo ahora esta corrupto")
-		corrupt()
+		#corrupt()
+		is_corrupted = true
+		animated_sprite_2d.play("corrupted")
