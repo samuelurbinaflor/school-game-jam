@@ -941,7 +941,7 @@ position = Vector2(2510, 101)
 vuelo = 1
 
 [node name="Player" parent="." instance=ExtResource("2_yjjx0")]
-position = Vector2(2382, 82)
+position = Vector2(108, 472)
 
 [node name="Camera2D2" type="Camera2D" parent="Player"]
 position = Vector2(130, -39)
