@@ -19,7 +19,7 @@ var gravity = 500
 #esto para el patron de vuelo (horizontal, vertical, estatico, en circulos porsiacaso...)
 enum patronVuelo { float, horizontal, vertical, circle }
 @export var vuelo: patronVuelo = patronVuelo.horizontal
-@export var distanciaV = 5 #distancia max v
+@export var distanciaV = 50 #distancia max v
 @export var distanciaH = 100 #distancia max h
 @export var Rcirculo = 50
 @export var velCirculo = 1
