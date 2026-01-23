@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cui63m8h1wfx2"]
 
 [ext_resource type="Script" uid="uid://bol7jwo1h237a" path="res://scripts/enemy_pitijopo.gd" id="1_usb33"]
-[ext_resource type="Texture2D" uid="uid://qvg3vrlwaey3" path="res://assets/objects/box.png" id="2_cd1sh"]
+[ext_resource type="Texture2D" uid="uid://qedfp0dlx7c" path="res://assets/objects/box.png" id="2_cd1sh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8h3ht"]
 size = Vector2(20.22904, 19.092707)
