@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dei1h67bf10o"]
 
 [ext_resource type="Texture2D" uid="uid://d3ialfdypeb84" path="res://assets/objects/platform.png" id="1_m81e1"]
-[ext_resource type="PackedScene" uid="uid://b7fekfvyoi1a6" path="res://scenes/Player.tscn" id="2_tql2w"]
+[ext_resource type="PackedScene" uid="uid://bbe1a5aqyad63" path="res://scenes/Player.tscn" id="2_tql2w"]
 [ext_resource type="PackedScene" uid="uid://dfqlbu1qlp6vl" path="res://scenes/enemy_ant.tscn" id="3_iamcd"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_amoky"]
@@ -13,6 +13,8 @@ size = Vector2(877, 57)
 position = Vector2(227, 548)
 
 [node name="plataforma" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_amoky")
 
 [node name="Sprite2D" type="Sprite2D" parent="plataforma"]
@@ -34,3 +36,20 @@ position_smoothing_enabled = true
 light_mask = 33
 position = Vector2(120.99999, -45)
 scale = Vector2(1.3073518, 1.1991593)
+collision_mask = 2
+maxMood = 6.0
+
+[node name="enemy_pitijopo" parent="." instance=ExtResource("4_dy0a3")]
+position = Vector2(51.000015, -189)
+scale = Vector2(0.90478474, 0.8164935)
+collision_mask = 2
+vuelo = 0
+distanciaV = 50
+distanciaH = 200
+
+[node name="MushroomSwitch2" parent="." instance=ExtResource("5_jktt2")]
+position = Vector2(402, -98)
+switch_type = 4
+
+[node name="MushroomSwitch" parent="." instance=ExtResource("5_jktt2")]
+position = Vector2(-7, -49)

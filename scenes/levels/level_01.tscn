@@ -4,9 +4,11 @@
 [ext_resource type="Script" uid="uid://dswow2xdhhxwj" path="res://scripts/test_level.gd" id="1_50wog"]
 [ext_resource type="Texture2D" uid="uid://rdcgkupjidev" path="res://assets/tiles/level_01/grid_01.png" id="2_uvc87"]
 [ext_resource type="Texture2D" uid="uid://cljhmmsm5v2du" path="res://assets/tiles/black-tiles.png" id="3_qdh5e"]
-[ext_resource type="PackedScene" uid="uid://b7fekfvyoi1a6" path="res://scenes/player.tscn" id="4_qdh5e"]
+[ext_resource type="PackedScene" uid="uid://bbe1a5aqyad63" path="res://scenes/player.tscn" id="4_qdh5e"]
 [ext_resource type="PackedScene" uid="uid://dnovuc1y15248" path="res://scenes/mushroomSwitch.tscn" id="5_qdh5e"]
+[ext_resource type="PackedScene" uid="uid://dfqlbu1qlp6vl" path="res://scenes/enemy_ant.tscn" id="7_kfebt"]
 [ext_resource type="PackedScene" uid="uid://dqibeisegp8kd" path="res://scenes/enemy.tscn" id="8_kfebt"]
+[ext_resource type="PackedScene" uid="uid://cui63m8h1wfx2" path="res://scenes/enemy_pitijopo.tscn" id="8_r72dd"]
 [ext_resource type="PackedScene" uid="uid://b02dw1kevpspe" path="res://scenes/objects/flower_platform.tscn" id="9_kfebt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uvc87"]
@@ -73,7 +75,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_kfebt"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 7
 physics_layer_0/collision_mask = 3
 sources/2 = SubResource("TileSetAtlasSource_1ey3t")
 sources/3 = SubResource("TileSetAtlasSource_t0hvh")
@@ -137,6 +139,14 @@ position = Vector2(553, 398)
 
 [node name="Enemy4" parent="Enemigos" instance=ExtResource("8_kfebt")]
 position = Vector2(2047, 300)
+
+[node name="enemy_ant" parent="Enemigos" instance=ExtResource("7_kfebt")]
+position = Vector2(214.99998, 395)
+collision_mask = 2
+
+[node name="enemy_pitijopo" parent="Enemigos" instance=ExtResource("8_r72dd")]
+position = Vector2(320.00003, 236)
+collision_mask = 2
 
 [node name="Enemy3" parent="Enemigos" instance=ExtResource("8_kfebt")]
 position = Vector2(1138, 127)

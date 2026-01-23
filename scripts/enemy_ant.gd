@@ -12,6 +12,7 @@ var gravity = 10
 var is_corrupted = false
 var normal_color: Color = Color(0.808, 0.0, 0.0, 1.0)
 var corrupted_color = Color(0.3, 0.6, 1.0) 
+var haGirado = false
 
 func _ready():
 	GameState.mode_changed.connect(worldModeChanged)
@@ -52,7 +53,17 @@ func _physics_process(delta):
 
 func vuelta():
 	var gira = false
-	
+	if haGirado:
+		var noColision = true
+		if moveLeft and RayIzq.is_colliding():
+			noColision = false
+		elif not moveLeft and RayDere.is_colliding():
+			noColision = false
+		
+		if noColision:
+			haGirado = false
+		return
+			
 	if not RayDereAbajo.is_colliding():
 		gira = true
 	if moveLeft and RayIzq.is_colliding():
@@ -63,13 +74,20 @@ func vuelta():
 	if gira:
 		moveLeft = !moveLeft
 		scale.x = -scale.x
+		haGirado = true
 
 func worldModeChanged(new_mode):
+	if new_mode == GameState.WorldMode.RED:
+		set_collision_mask_value(1,true)
+		set_collision_mask_value(2,true)
+		#collision.disabled = false
+	else:
+		set_collision_mask_value(1,false)
+		set_collision_mask_value(2,true)
+		#collision.disabled = true
+		
 	if is_corrupted:
 		return
-
-	#if new_mode != GameState.WorldMode.RED:
-		#sprite.modulate = normal_color
 
 #func corrupt():
 	#is_corrupted = true
@@ -79,10 +97,10 @@ func worldModeChanged(new_mode):
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and GameState.current_mode == GameState.WorldMode.RED and not is_corrupted:
-		print("El enemigo ahora esta corrupto")
-		#corrupt()
+		print("El enemigo esta corrupto")
 		is_corrupted = true
 		animated_sprite_2d.play("corrupted")
+		set_collision_mask_value(1, false)
 		
 func play_anim(name: String):
 	if animated_sprite_2d.animation != name:
