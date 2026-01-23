@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8558ta80bbj4"
-path="res://.godot/imported/Map2 Grid.png-eba39f78a0d073418350e1ac985ffdec.ctex"
+uid="uid://ubhcn60e0mrj"
+path="res://.godot/imported/izq.png-525809397f651db2cf8ee5389dc763ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/Map2 Grid.png"
-dest_files=["res://.godot/imported/Map2 Grid.png-eba39f78a0d073418350e1ac985ffdec.ctex"]
+source_file="res://assets/tiles/level_02/izq.png"
+dest_files=["res://.godot/imported/izq.png-525809397f651db2cf8ee5389dc763ed.ctex"]
 
 [params]
 
