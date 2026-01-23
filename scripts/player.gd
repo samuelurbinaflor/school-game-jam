@@ -4,6 +4,7 @@ const vel = 200.0
 const jumpVel = -400.0 #era constante
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var death_zone: Area2D = $"../DeathZone"
 
 #Jump buffer
 var jump_buffer_time := 0.12 # segundos que se guarda el input
@@ -58,3 +59,8 @@ func _physics_process(delta):
 func play_anim(name: String):
 	if animated_sprite_2d.animation != name:
 		animated_sprite_2d.play(name)
+
+
+func _on_death_zone_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		get_tree().reload_current_scene()
