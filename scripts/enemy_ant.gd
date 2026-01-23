@@ -17,7 +17,6 @@ var ha_girado = false
 func _ready():
 	super()
 	
-	
 func _physics_process(_delta):
 	if is_corrupted:
 		velocity = Vector2.ZERO
@@ -38,7 +37,6 @@ func _physics_process(_delta):
 	
 	if not is_on_floor():
 		velocity.y += gravity
-		
 	else: 
 		velocity.y = 0
 	
@@ -98,6 +96,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	   GameState.current_mode == GameState.WorldMode.RED and \
 	   not is_corrupted:
 		try_corrupt()
+		set_collision_mask_value(1, false)
 
 func get_enemy_type() -> GameState.WorldMode:
 	return GameState.WorldMode.RED
