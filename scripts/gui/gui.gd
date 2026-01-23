@@ -1,6 +1,6 @@
 extends Node
 
-var corrupted_count = 0
+var corrupted_count = 1
 
 func _ready() -> void:
 	print("GUI _ready() called")
@@ -18,7 +18,6 @@ func _ready() -> void:
 
 func _on_scene_changed() -> void:
 	print("Scene changed, checking for level...")
-	corrupted_count = 0
 	_update_mushroom_counter()
 	_check_and_start_timer()
 

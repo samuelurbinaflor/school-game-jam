@@ -28,6 +28,19 @@ func switch_mode(new_mode: WorldMode):
 	mode_changed.emit(current_mode)
 	print("Modo cambiado a: ", WorldMode.keys()[current_mode])
 
+func reset_to_normal():
+	current_mode = WorldMode.NORMAL
+	mode_changed.emit(current_mode)
+	print("Game state resetted to NORMAL")
+
+func reset_counter():
+	# Get the GUI node and reset the counter
+	var gui = get_tree().root.find_child("GameHud", true, false)
+	if gui:
+		gui.corrupted_count = 1
+		gui._update_mushroom_counter()
+		print("Counter resetted to 1")
+
 func get_overlay_color() -> Color:
 	match current_mode:
 		WorldMode.RED:

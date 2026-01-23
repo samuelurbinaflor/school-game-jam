@@ -8,10 +8,14 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var player_audio: AudioStreamPlayer2D = $PlayerAudio
 
 var is_dropping_through = false
+var is_dead = false
 
 # Audio streams
 const JUMP_SOUND = preload("res://assets/audio/sfx/movement/jump.mp3")
 const FOOTSTEP_SOUND = preload("res://assets/audio/sfx/movement/walk.mp3")
+const FALL_SOUND = preload("res://assets/audio/sfx/caida.mp3")
+const DEATH_SOUND = preload("res://assets/audio/sfx/muerte.mp3")
+const RESPAWN_SOUND = preload("res://assets/audio/sfx/respawn.mp3")
 
 var _current_anim: String = ""
 var _footstep_cooldown: float = 0.0
@@ -22,6 +26,14 @@ var jump_buffer_time := 0.12 # segundos que se guarda el input
 var jump_buffer := 0.0
 
 
+func _ready() -> void:
+	# Crear un nuevo AudioStreamPlayer2D para reproducir el sonido de respawn
+	var respawn_audio = AudioStreamPlayer2D.new()
+	respawn_audio.stream = RESPAWN_SOUND
+	add_child(respawn_audio)
+	respawn_audio.play()
+
+
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -29,33 +41,36 @@ func _physics_process(delta):
 	#if Input.is_action_just_pressed("salto") and is_on_floor():
 	#velocity.y = jumpVel
 
-	if Input.is_action_just_pressed("down") and is_on_floor():
-		if _is_on_burh_platform():
-			is_dropping_through = true
-			set_collision_mask_value(2, false)
-
-	if is_dropping_through:
-		if velocity.y > 50:
-			is_dropping_through = false
-			set_collision_mask_value(2, true)
-
-	# ───── JUMP BUFFER ─────
-	if Input.is_action_just_pressed("salto"):
-		jump_buffer = jump_buffer_time
-	else:
-		jump_buffer -= delta
-
-	if jump_buffer > 0 and is_on_floor():
-		velocity.y = jumpVel
-		jump_buffer = 0
-		play_anim("jump")
-		play_sound(JUMP_SOUND)
-
 	var direc = Input.get_axis("moverIzq", "moverDere")
-	if direc:
-		velocity.x = direc * vel
-	else:
-		velocity.x = move_toward(velocity.x, 0, vel)
+	
+	if not is_dead:
+		if Input.is_action_just_pressed("down") and is_on_floor():
+			if _is_on_burh_platform():
+				is_dropping_through = true
+				set_collision_mask_value(2, false)
+
+		if is_dropping_through:
+			if velocity.y > 50:
+				is_dropping_through = false
+				set_collision_mask_value(2, true)
+
+		# ───── JUMP BUFFER ─────
+		if Input.is_action_just_pressed("salto"):
+			jump_buffer = jump_buffer_time
+		else:
+			jump_buffer -= delta
+
+		if jump_buffer > 0 and is_on_floor():
+			velocity.y = jumpVel
+			jump_buffer = 0
+			play_anim("jump")
+			play_sound(JUMP_SOUND)
+
+		if direc:
+			velocity.x = direc * vel
+		else:
+			velocity.x = move_toward(velocity.x, 0, vel)
+	
 	move_and_slide()
 
 	# ───── GIRAR SPRITE ─────
@@ -100,6 +115,17 @@ func _update_footstep_sound(_delta: float) -> void:
 
 func _on_death_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		is_dead = true
+		play_sound(FALL_SOUND)
+		# Crear un nuevo AudioStreamPlayer2D para reproducir el segundo sonido
+		var second_audio = AudioStreamPlayer2D.new()
+		second_audio.stream = DEATH_SOUND
+		add_child(second_audio)
+		second_audio.play()
+		var sound_duration = DEATH_SOUND.get_length()
+		await get_tree().create_timer(sound_duration).timeout
+		GameState.reset_to_normal()
+		GameState.reset_counter()
 		get_tree().reload_current_scene()
 
 func _is_on_burh_platform() -> bool:
