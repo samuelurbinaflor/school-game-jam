@@ -24,6 +24,7 @@ Este proyecto utiliza recursos de terceros cuyas licencias se pueden encontrar e
   - **Respawn** by Universfield - [Enlace](https://pixabay.com/es/sound-effects/pel%c3%adculas-y-efectos-especiales-slide-whistle-up-326154/)
   - **Bubble Avance** by Universfield - [Enlace](https://pixabay.com/es/sound-effects/pel%c3%adculas-y-efectos-especiales-bubble-pop-06-351337/)
   - **Bubble Retroceso** by DRAGON-STUDIO - [Enlace](https://pixabay.com/es/sound-effects/pel%c3%adculas-y-efectos-especiales-pop-402323/)
+  - **Spores** (Edited) by Universfield - [Enlace](https://pixabay.com/es/sound-effects/pel%c3%adculas-y-efectos-especiales-rising-bubbly-pop-351023/)
 - **Dyslexic Liefy Font** by Lady Liefy - [Enlace](https://ladyliefy.itch.io/dyslexic-lief)
 - **Lucid Icon Pack** (Edited) by Leo Red - [Enlace](https://leo-red.itch.io/lucid-icon-pack)
 - **Ornate Retro UI** (Edited) by zLizard - [Enlace](https://z-spider.itch.io/ornate-retro-ui-free-sample)

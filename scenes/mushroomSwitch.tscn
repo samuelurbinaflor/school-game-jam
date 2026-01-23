@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dnovuc1y15248"]
 
-[ext_resource type="Script" uid="uid://b5yd33oiqrd38" path="res://scripts/mushroom_switch.gd" id="1_u41fj"]
+[ext_resource type="Script" uid="uid://brfem8nuv643o" path="res://scripts/mushroom_switch.gd" id="1_u41fj"]
 [ext_resource type="Texture2D" uid="uid://7cil8b780qdv" path="res://assets/objects/ball.png" id="2_o8c1o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n1pu5"]
@@ -14,3 +14,6 @@ shape = SubResource("CircleShape2D_n1pu5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_o8c1o")
+
+[node name="MushroomAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"
