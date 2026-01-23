@@ -1,86 +1,76 @@
-extends CharacterBody2D
+extends Enemy
 
-@onready var RayDere = $RayCastDere
-@onready var RayIzq = $RayCastIzq
-#@onready var RayDereAbajo = $RayCastAbajoDere
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var detectaArea2D: Area2D = $Area2D
+@onready var ray_dere = $RayCastDere
+@onready var ray_izq = $RayCastIzq
+@onready var detecta_area_2d: Area2D = $Area2D
 
 var vel = 120
-var moveRight = true
-var moveDown = true
+var move_right = true
+var move_down = true
 var time = 0.0
-var is_corrupted = false
 var posicion = Vector2.ZERO
 var gravity = 500
 
-signal corrupted
-
-enum patronVuelo { float, horizontal, vertical, circle }
-@export var vuelo: patronVuelo = patronVuelo.horizontal
-@export var distanciaV = 50 #distancia max v
-@export var distanciaH = 100 #distancia max h
-@export var Rcirculo = 50
-@export var velCirculo = 1
+enum PatronVuelo { FLOAT, HORIZONTAL, VERTICAL, CIRCLE }
+@export var vuelo: PatronVuelo = PatronVuelo.HORIZONTAL
+@export var distancia_v = 50 #distancia max v
+@export var distancia_h = 100 #distancia max h
+@export var r_circulo = 50
+@export var vel_circulo = 1
 
 func _ready():
-	GameState.mode_changed.connect(worldModeChanged)
+	super()
 	posicion = global_position
 	
-	#if detectaArea2D:
-	#	detectaArea2D.body_entered.connect(_on_area_2d_body_entered)
-	#	detectaArea2D.area_entered.connect(_on_area_2d_area_entered)
-	
-func _physics_process(delta):
-	time += delta
+func _physics_process(_delta):
+	time += _delta
 	if is_corrupted:
-		velocity.y += gravity * delta
+		velocity.y += gravity * _delta
 		velocity.x = 0
 		play_anim("corrupted")
-		#velocity = Vector2.ZERO
 		move_and_slide()
 		return
 	
 	match vuelo:
-		patronVuelo.float:
-			fly_float(delta)
-		patronVuelo.horizontal:
-			fly_horizontal(delta)
-		patronVuelo.vertical:
-			fly_vertical(delta)
+		PatronVuelo.FLOAT:
+			fly_float(_delta)
+		PatronVuelo.HORIZONTAL:
+			fly_horizontal(_delta)
+		PatronVuelo.VERTICAL:
+			fly_vertical(_delta)
 	
-	if vuelo == patronVuelo.float:
+	if vuelo == PatronVuelo.FLOAT:
 		play_anim("idle")
 	else:
 		play_anim("fly")
 	
 	move_and_slide()
 
-func fly_float(delta): #solo para flotar en el mismo sitio
+func fly_float(_delta): #solo para flotar en el mismo sitio
 	var offset = sin(time * 2.0) * 20.0
 	global_position.y = posicion.y + offset
 	velocity = Vector2.ZERO
 
-func fly_horizontal(delta): #mov horizontal con rebote 
+func fly_horizontal(_delta): #mov horizontal con rebote 
 	#calcular distancia desde punto inicial
-	var distanciaInicio = global_position.x - posicion.x
+	var distancia_inicio = global_position.x - posicion.x
 	
-	if distanciaInicio >= distanciaH: #límites de distancia
-		moveRight = false #limite derecho
+	if distancia_inicio >= distancia_h: #límites de distancia
+		move_right = false #limite derecho
 		animated_sprite_2d.flip_h = true
-	elif distanciaInicio <= -distanciaH:
-		moveRight = true #limite izq
+	elif distancia_inicio <= -distancia_h:
+		move_right = true #limite izq
 		animated_sprite_2d.flip_h = false
 	
 	#colisiones con raycasts por si hay paredes :3
-	if moveRight and RayDere and RayDere.is_colliding():
-		moveRight = false
+	if move_right and ray_dere and ray_dere.is_colliding():
+		move_right = false
 		animated_sprite_2d.flip_h = true
-	elif not moveRight and RayIzq and RayIzq.is_colliding():
-		moveRight = true
+	elif not move_right and ray_izq and ray_izq.is_colliding():
+		move_right = true
 		animated_sprite_2d.flip_h = false
 	
-	if moveRight:
+	if move_right:
 		velocity.x = vel
 	else:
 		velocity.x = -vel
@@ -89,15 +79,15 @@ func fly_horizontal(delta): #mov horizontal con rebote
 	var float_offset = sin(time * 3.0) * 10.0
 	velocity.y = float_offset
 
-func fly_vertical(delta): #mov vertical
-	var distanciaInicio = global_position.y - posicion.y
+func fly_vertical(_delta): #mov vertical
+	var distancia_inicio = global_position.y - posicion.y
 	
-	if distanciaInicio >= distanciaV:
-		moveDown = false
-	elif distanciaInicio <= -distanciaV:
-		moveDown = true
+	if distancia_inicio >= distancia_v:
+		move_down = false
+	elif distancia_inicio <= -distancia_v:
+		move_down = true
 	
-	if moveDown:
+	if move_down:
 		velocity.y = vel
 	else:
 		velocity.y = -vel
@@ -106,43 +96,26 @@ func fly_vertical(delta): #mov vertical
 	velocity.x = float_offset
 
 #func fly_circle(delta): #mov circular
-	#var x_offset = cos(time * velCirculo) * Rcirculo
-	#var y_offset = sin(time * velCirculo) * Rcirculo
+	#var x_offset = cos(time * vel_circulo) * r_circulo
+	#var y_offset = sin(time * vel_circulo) * r_circulo
 	#global_position = posicion + Vector2(x_offset, y_offset)
 	#velocity = Vector2.ZERO
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") and not is_corrupted:
-		corrupt()
-
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	if not is_corrupted:
-		corrupt()
-
-func corrupt():
-	if GameState.current_mode == GameState.WorldMode.GREEN:
-		is_corrupted = true
-		print("Pitijopo corrompido!")
-		
-		set_collision_mask_value(1,false)
-		#if collision:
-			#collision.set_deferred("disabled", true)
-	
-	#pequeña animacion
-	#var tween = create_tween()
-	#tween.tween_property(sprite, "scale", Vector2(1.2, 1.2), 0.2)
-	#tween.tween_property(sprite, "scale", Vector2(1.0, 1.0), 0.2)
-
-func worldModeChanged(new_mode):
+func _on_mode_changed(_new_mode):
 	if is_corrupted:
 		return
-	if new_mode == GameState.WorldMode.GREEN:
-		set_collision_mask_value(1,true)
-		set_collision_mask_value(2,true)
+	if _new_mode == GameState.WorldMode.GREEN:
+		set_collision_mask_value(1, true)
+		set_collision_mask_value(2, true)
 	else:
-		set_collision_mask_value(1,false)
-		set_collision_mask_value(2,true)
+		set_collision_mask_value(1, false)
+		set_collision_mask_value(2, true)
 
-func play_anim(name: String):
-	if animated_sprite_2d.animation != name:
-		animated_sprite_2d.play(name)
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player") and \
+	   GameState.current_mode == GameState.WorldMode.GREEN and \
+	   not is_corrupted:
+		try_corrupt()
+
+func get_enemy_type() -> GameState.WorldMode:
+	return GameState.WorldMode.GREEN
