@@ -271,7 +271,7 @@ jobs:
     (github.event_name == 'workflow_dispatch' || (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'))
   runs-on: ubuntu-latest
   outputs:
-    release-tag: ${{ steps.existing_tag.outputs.new_tag || steps.new_tag.outputs.new_tag }}
+    release-tag: ${{ steps.existing_tag.outputs.new_tag || steps.new_tag.outputs.new_tag || steps.fallback_tag.outputs.new_tag }}
     game-name: ${{ needs.Detect-Platforms.outputs.game-name }}
   steps:
     - uses: actions/checkout@v4
@@ -299,18 +299,43 @@ jobs:
     
     - name: Verify Tag
       if: github.event_name == 'workflow_dispatch' && github.event.inputs.bump_type != 'none' && !steps.new_tag.outputs.new_tag
+      id: fallback_tag
+      shell: bash
       run: |
-        echo "❌ ERROR: No version tag was created!"
+        echo "⚠️ WARNING: No version tag was created automatically"
         echo ""
-        echo "This can happen if:"
-        echo "1. No commits follow conventional commit format (feat:, fix:, etc.)"
-        echo "2. You selected 'auto' but no bump was detected"
+        echo "This can happen if no commits follow conventional commit format (feat:, fix:, etc.)"
+        echo "Creating a fallback patch version bump..."
         echo ""
-        echo "Please either:"
-        echo "- Use conventional commits in your commit messages, OR"
-        echo "- Select a specific bump type (major, minor, patch), OR"
-        echo "- Select 'none' to use the existing version tag"
-        exit 1
+        
+        # Get latest tag or default to v0.0.0
+        LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+        echo "Latest tag found: $LATEST_TAG"
+        
+        # Parse version and bump patch
+        VERSION="${LATEST_TAG#v}"
+        MAJOR=$(echo "$VERSION" | cut -d. -f1)
+        MINOR=$(echo "$VERSION" | cut -d. -f2)
+        PATCH=$(echo "$VERSION" | cut -d. -f3)
+        PATCH=$((PATCH + 1))
+        
+        NEW_TAG="v${MAJOR}.${MINOR}.${PATCH}"
+        echo "Creating fallback tag: $NEW_TAG"
+        
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git tag "$NEW_TAG"
+        git push origin "$NEW_TAG"
+        
+        echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
+        echo "✅ Fallback tag created successfully"
+    
+    - name: Finalize Tag
+      if: steps.new_tag.outputs.new_tag || steps.fallback_tag.outputs.new_tag
+      shell: bash
+      run: |
+        FINAL_TAG="${{ steps.new_tag.outputs.new_tag || steps.fallback_tag.outputs.new_tag }}"
+        echo "Release will use tag: $FINAL_TAG"
     
     - name: Download Exports (from test run)
       if: github.event.inputs.rebuild != 'true'
