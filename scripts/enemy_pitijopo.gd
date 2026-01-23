@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var RayDere = $RayCastDere
 @onready var RayIzq = $RayCastIzq
 #@onready var RayDereAbajo = $RayCastAbajoDere
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var detectaArea2D: Area2D = $Area2D
 
 var vel = 120
@@ -12,8 +12,6 @@ var moveDown = true
 var time = 0.0
 var is_corrupted = false
 var posicion = Vector2.ZERO
-var normal_color: Color = Color(0.104, 0.626, 0.228, 1.0)
-var corrupted_color = Color(0.3, 0.6, 1.0) 
 var gravity = 500
 
 signal corrupted
@@ -27,7 +25,6 @@ enum patronVuelo { float, horizontal, vertical, circle }
 
 func _ready():
 	GameState.mode_changed.connect(worldModeChanged)
-	sprite.modulate = normal_color
 	posicion = global_position
 	
 	#if detectaArea2D:
@@ -39,6 +36,7 @@ func _physics_process(delta):
 	if is_corrupted:
 		velocity.y += gravity * delta
 		velocity.x = 0
+		play_anim("corrupted")
 		#velocity = Vector2.ZERO
 		move_and_slide()
 		return
@@ -50,8 +48,12 @@ func _physics_process(delta):
 			fly_horizontal(delta)
 		patronVuelo.vertical:
 			fly_vertical(delta)
-		#patronVuelo.circle:
-			#fly_circle(delta)
+	
+	if vuelo == patronVuelo.float:
+		play_anim("idle")
+	else:
+		play_anim("fly")
+	
 	move_and_slide()
 
 func fly_float(delta): #solo para flotar en el mismo sitio
@@ -65,18 +67,18 @@ func fly_horizontal(delta): #mov horizontal con rebote
 	
 	if distanciaInicio >= distanciaH: #límites de distancia
 		moveRight = false #limite derecho
-		sprite.flip_h = true
+		animated_sprite_2d.flip_h = true
 	elif distanciaInicio <= -distanciaH:
 		moveRight = true #limite izq
-		sprite.flip_h = false
+		animated_sprite_2d.flip_h = false
 	
 	#colisiones con raycasts por si hay paredes :3
 	if moveRight and RayDere and RayDere.is_colliding():
 		moveRight = false
-		sprite.flip_h = true
+		animated_sprite_2d.flip_h = true
 	elif not moveRight and RayIzq and RayIzq.is_colliding():
 		moveRight = true
-		sprite.flip_h = false
+		animated_sprite_2d.flip_h = false
 	
 	if moveRight:
 		velocity.x = vel
@@ -120,9 +122,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func corrupt():
 	if GameState.current_mode == GameState.WorldMode.GREEN:
 		is_corrupted = true
-		sprite.modulate = corrupted_color
-		print("Pitijopo corrompido?")
-		corrupted.emit()
+		print("Pitijopo corrompido!")
 		
 		set_collision_mask_value(1,false)
 		#if collision:
@@ -142,6 +142,7 @@ func worldModeChanged(new_mode):
 	else:
 		set_collision_mask_value(1,false)
 		set_collision_mask_value(2,true)
-		
-	if not is_corrupted and new_mode != GameState.WorldMode.GREEN:
-		sprite.modulate = normal_color
+
+func play_anim(name: String):
+	if animated_sprite_2d.animation != name:
+		animated_sprite_2d.play(name)

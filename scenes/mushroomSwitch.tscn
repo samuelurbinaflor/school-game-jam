@@ -1,16 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://dnovuc1y15248"]
 
 [ext_resource type="Script" uid="uid://brfem8nuv643o" path="res://scripts/mushroom_switch.gd" id="1_u41fj"]
-[ext_resource type="Texture2D" uid="uid://1jve1608kb71" path="res://assets/objects/ball.png" id="2_o8c1o"]
+[ext_resource type="Texture2D" uid="uid://c0cl0h5ojrip0" path="res://assets/tiles/Switch-rooms.png" id="2_u41fj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n1pu5"]
-radius = 8.0
+radius = 23.0
 
 [node name="MushroomSwitch" type="Area2D"]
 script = ExtResource("1_u41fj")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_u41fj")
+hframes = 4
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_n1pu5")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_o8c1o")
