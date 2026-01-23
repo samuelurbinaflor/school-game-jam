@@ -13,7 +13,7 @@ config_version=5
 config/name="Cordynvasion"
 run/main_scene="uid://bjvwtvpb5yrgl"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://c3kxbyr1ftb8o"
 config/autoload/GameState="res://scripts/game_state.gd"
 
 [autoload]

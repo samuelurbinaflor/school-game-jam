@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://yahmxkdpyf6v"]
+[gd_scene load_steps=21 format=4 uid="uid://yahmxkdpyf6v"]
 
 [ext_resource type="Texture2D" uid="uid://d0ygqxijs1sxo" path="res://assets/tiles/level_02/grid_02.png" id="1_3acmf"]
 [ext_resource type="Texture2D" uid="uid://b431cmjp64qlt" path="res://assets/tiles/level_02/platforms_02.png" id="1_a3l5x"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cui63m8h1wfx2" path="res://scenes/enemy_pitijopo.tscn" id="11_m2jhg"]
 [ext_resource type="Texture2D" uid="uid://h62e7t02kxb" path="res://assets/tiles/level_02/izq.png" id="12_n536o"]
 [ext_resource type="PackedScene" uid="uid://dfqlbu1qlp6vl" path="res://scenes/enemy_ant.tscn" id="12_q6ljp"]
+[ext_resource type="AudioStream" uid="uid://c3n13j2t3hq7a" path="res://assets/audio/music/our-place-in-the-forest.mp3" id="15_m2jhg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c6rld"]
 texture = ExtResource("1_a3l5x")
@@ -948,3 +949,8 @@ limit_left = 0
 limit_top = -790
 limit_right = 4860
 limit_bottom = 589
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_m2jhg")
+autoplay = true
+bus = &"Music"

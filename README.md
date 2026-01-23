@@ -21,8 +21,8 @@ Este proyecto utiliza recursos de terceros cuyas licencias se pueden encontrar e
 
 - **Godot Engine** - [Licencia](https://godotengine.org/license)
 - Pixabay audio - [Licencia](https://pixabay.com/es/service/license-summary/)
+  - **Shake it up** by teddybeast6 - [Enlace](https://pixabay.com/es/music/caricaturas-shake-it-up-397500)
   - **Prado florido** by AudioCoffee - [Enlace](https://pixabay.com/es/music/optimista-spring-time-214556/)
-  - **Bosque Bullicioso** by Grand_Project - [Enlace](https://pixabay.com/es/music/caricaturas-sprinkle-of-trouble-short-2-comedy-407155/)
   - **Festival del picnic** by VitMatNotes - [Enlace](https://pixabay.com/es/music/caricaturas-funy-adventure-257186/)
   - **Walk** (Edited) by EvanSki (Freesound) - [Enlace](https://pixabay.com/es/sound-effects/pel%c3%adculas-y-efectos-especiales-running-in-grass-6237/)
   - **Shake it up** by teddybeast6 - [Enlace](https://pixabay.com/es/music/caricaturas-shake-it-up-397500/)
