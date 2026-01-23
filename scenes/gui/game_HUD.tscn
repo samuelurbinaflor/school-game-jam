@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://yyt2l2ctk1dt"]
 
 [ext_resource type="Script" uid="uid://c8wtqmtn4y2q2" path="res://scripts/gui/gui.gd" id="1_2nda2"]
-[ext_resource type="PackedScene" uid="uid://l7x847j376ng" path="res://scenes/gui/settings.tscn" id="1_je58v"]
-[ext_resource type="PackedScene" uid="uid://co1fghg8e5wyt" path="res://scenes/gui/time_progress.tscn" id="3_kdedy"]
-[ext_resource type="Texture2D" uid="uid://brdcy1dtwo1ml" path="res://assets/ui/lucid/Pause.png" id="3_qkglv"]
+[ext_resource type="PackedScene" uid="uid://ddlllj86txfp3" path="res://scenes/gui/settings.tscn" id="1_je58v"]
+[ext_resource type="PackedScene" uid="uid://bva1gkdhwrvx" path="res://scenes/gui/time_progress.tscn" id="3_kdedy"]
+[ext_resource type="Texture2D" uid="uid://or4jrnino1r5" path="res://assets/ui/lucid/Pause.png" id="3_qkglv"]
 [ext_resource type="PackedScene" uid="uid://1tob7x66tck4" path="res://scenes/gui/pause_menu.tscn" id="5_flmts"]
 [ext_resource type="Script" uid="uid://bdoig1y0xb5wj" path="res://scripts/components/audio_button.gd" id="5_retkk"]
 

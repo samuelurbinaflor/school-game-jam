@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" path="res://assets/ui/lucid/Gear.png" id="1_l6cm7"]
 [ext_resource type="Script" path="res://scripts/gui/main_menu.gd" id="1_wu84c"]
 [ext_resource type="Script" path="res://scripts/components/audio_button.gd" id="2_bqqt6"]
-[ext_resource type="AudioStream" uid="uid://3mq21hkicnvv" path="res://assets/audio/music/prado_florido.mp3" id="5_x41oi"]
+[ext_resource type="AudioStream" uid="uid://dmgwmo0xw3fmg" path="res://assets/audio/music/prado_florido.mp3" id="5_x41oi"]
 
 [sub_resource type="Gradient" id="Gradient_f4mfi"]
 offsets = PackedFloat32Array(0, 0.9831933)

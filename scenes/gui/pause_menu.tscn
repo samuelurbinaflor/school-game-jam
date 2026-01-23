@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bdoig1y0xb5wj" path="res://scripts/components/audio_button.gd" id="1_4vp8g"]
 [ext_resource type="Script" uid="uid://c6xynu6mxu2lk" path="res://scripts/gui/pause_menu.gd" id="1_pause"]
-[ext_resource type="Texture2D" uid="uid://eqih772htjw" path="res://assets/ui/lucid/Question-Mark.png" id="2_e3p60"]
-[ext_resource type="Texture2D" uid="uid://hjg3jn5ye65w" path="res://assets/ui/lucid/Home.png" id="3_a81cd"]
-[ext_resource type="Texture2D" uid="uid://c1x8g2g5lgcy4" path="res://assets/ui/lucid/Redo.png" id="4_11l0y"]
+[ext_resource type="Texture2D" uid="uid://dxlkkver6ma7l" path="res://assets/ui/lucid/Question-Mark.png" id="2_e3p60"]
+[ext_resource type="Texture2D" uid="uid://b7sfy60pudgnf" path="res://assets/ui/lucid/Home.png" id="3_a81cd"]
+[ext_resource type="Texture2D" uid="uid://c4l3mh02otwy0" path="res://assets/ui/lucid/Redo.png" id="4_11l0y"]
 
 [sub_resource type="Gradient" id="Gradient_1oj2q"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)

@@ -1,16 +1,16 @@
 [gd_scene load_steps=15 format=3 uid="uid://ddlllj86txfp3"]
 
-[ext_resource type="Texture2D" uid="uid://cnwrhkw60dydy" path="res://assets/ui/lucid/vol0.png" id="1_6wm04"]
+[ext_resource type="Texture2D" uid="uid://65x066jrdyto" path="res://assets/ui/lucid/vol0.png" id="1_6wm04"]
 [ext_resource type="Script" uid="uid://dqubqjhv7w2qq" path="res://scripts/gui/settings/audio.gd" id="1_f4mfi"]
 [ext_resource type="Script" uid="uid://ch4de3cq1tqch" path="res://scripts/gui/settings/settings.gd" id="1_uhhto"]
 [ext_resource type="Theme" uid="uid://chd4lg26jo6hf" path="res://theme/main_theme.tres" id="2_4ppmf"]
-[ext_resource type="Texture2D" uid="uid://cnwv18khqlne" path="res://assets/ui/lucid/Minus.png" id="2_f4mfi"]
+[ext_resource type="Texture2D" uid="uid://d1godx8fvkke2" path="res://assets/ui/lucid/Minus.png" id="2_f4mfi"]
 [ext_resource type="Theme" uid="uid://c6utw648l8er0" path="res://theme/mute_buttons.tres" id="3_am25x"]
-[ext_resource type="Texture2D" uid="uid://cg07cpf5li811" path="res://assets/ui/lucid/Plus.png" id="3_es4n0"]
+[ext_resource type="Texture2D" uid="uid://ctacqyfaw4f21" path="res://assets/ui/lucid/Plus.png" id="3_es4n0"]
 [ext_resource type="Script" path="res://scripts/gui/settings/language.gd" id="5_gis3k"]
 [ext_resource type="Script" path="res://scripts/components/audio_button.gd" id="7_4ppmf"]
-[ext_resource type="Texture2D" uid="uid://ogjmjtf82yl8" path="res://assets/Snoblin_Flags_of_Europe/United_Kingdom.png" id="7_gjs24"]
-[ext_resource type="Texture2D" uid="uid://c6fkq31gst1i" path="res://assets/Snoblin_Flags_of_Europe/Spain.png" id="8_am25x"]
+[ext_resource type="Texture2D" uid="uid://daiturat8wgqk" path="res://assets/Snoblin_Flags_of_Europe/United_Kingdom.png" id="7_gjs24"]
+[ext_resource type="Texture2D" uid="uid://b8f6w7uuja7sg" path="res://assets/Snoblin_Flags_of_Europe/Spain.png" id="8_am25x"]
 
 [sub_resource type="Gradient" id="Gradient_f4mfi"]
 
