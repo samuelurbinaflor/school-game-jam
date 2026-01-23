@@ -45,7 +45,6 @@ region_rect = Rect2(0, 0, 48, 48)
 modulate_color = Color(1.1058325, 1.1058325, 1.1058325, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4xa5k"]
-load_path = "res://.godot/imported/BrownUP.png-8626f82ad6c32d5fa1ecb7e4b7993a80.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fqy7u"]
 texture = SubResource("CompressedTexture2D_4xa5k")

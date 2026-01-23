@@ -14,19 +14,6 @@ var is_corrupted = false
 var normal_color: Color = Color(0.808, 0.0, 0.0, 1.0)
 var corrupted_color = Color(0.3, 0.6, 1.0) 
 var haGirado = false
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-
-enum Mood {idle, walk}
-var mood = Mood.walk
-var timeMood = 0
-@export var minMood = 2.0 #tiempos para la duracion del modo en el que estara la hormiga (andar o idle)
-@export var maxMood = 5.0
-var normalMood = 3.0
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 enum Mood {idle, walk}
 var mood = Mood.walk
@@ -100,12 +87,17 @@ func vuelta():
 		haGirado = true
 
 func worldModeChanged(new_mode):
-	#updateCollision()
+	if new_mode == GameState.WorldMode.RED:
+		set_collision_mask_value(1,true)
+		set_collision_mask_value(2,true)
+		#collision.disabled = false
+	else:
+		set_collision_mask_value(1,false)
+		set_collision_mask_value(2,true)
+		#collision.disabled = true
+		
 	if is_corrupted:
 		return
-
-	#if new_mode != GameState.WorldMode.RED:
-		#sprite.modulate = normal_color
 
 #func corrupt():
 	#is_corrupted = true
@@ -116,12 +108,9 @@ func worldModeChanged(new_mode):
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and GameState.current_mode == GameState.WorldMode.RED and not is_corrupted:
 		print("El enemigo esta corrupto")
-		#corrupt()
 		is_corrupted = true
 		animated_sprite_2d.play("corrupted")
-		
-		if collision:
-			collision.set_deferred("disabled", true)
+		set_collision_mask_value(1, false)
 		
 func play_anim(name: String):
 	if animated_sprite_2d.animation != name:

@@ -14,6 +14,7 @@ var is_corrupted = false
 var posicion = Vector2.ZERO
 var normal_color: Color = Color(0.104, 0.626, 0.228, 1.0)
 var corrupted_color = Color(0.3, 0.6, 1.0) 
+var gravity = 500
 
 #esto para el patron de vuelo (horizontal, vertical, estatico, en circulos porsiacaso...)
 enum patronVuelo { float, horizontal, vertical, circle }
@@ -37,7 +38,9 @@ func _ready():
 func _physics_process(delta):
 	time += delta
 	if is_corrupted:
-		velocity = Vector2.ZERO
+		velocity.y += gravity * delta
+		velocity.x = 0
+		#velocity = Vector2.ZERO
 		move_and_slide()
 		return
 	
@@ -53,8 +56,8 @@ func _physics_process(delta):
 			fly_horizontal(delta)
 		patronVuelo.vertical:
 			fly_vertical(delta)
-		patronVuelo.circle:
-			fly_circle(delta)
+		#patronVuelo.circle:
+			#fly_circle(delta)
 	move_and_slide()
 
 func fly_float(delta): #solo para flotar en el mismo sitio
@@ -106,11 +109,11 @@ func fly_vertical(delta): #mov vertical
 	var float_offset = sin(time * 2.0) * 5.0
 	velocity.x = float_offset
 
-func fly_circle(delta): #mov circular
-	var x_offset = cos(time * velCirculo) * Rcirculo
-	var y_offset = sin(time * velCirculo) * Rcirculo
-	global_position = posicion + Vector2(x_offset, y_offset)
-	velocity = Vector2.ZERO
+#func fly_circle(delta): #mov circular
+	#var x_offset = cos(time * velCirculo) * Rcirculo
+	#var y_offset = sin(time * velCirculo) * Rcirculo
+	#global_position = posicion + Vector2(x_offset, y_offset)
+	#velocity = Vector2.ZERO
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and not is_corrupted:
@@ -121,21 +124,31 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		corrupt()
 
 func corrupt():
-	if GameState.current_mode == GameState.WorldMode.RED:
+	if GameState.current_mode == GameState.WorldMode.GREEN:
 		is_corrupted = true
 		sprite.modulate = corrupted_color
 		print("Pitijopo corrompido?")
 		
-		if collision:
-			collision.set_deferred("disabled", true)
+		set_collision_mask_value(1,false)
+		#if collision:
+			#collision.set_deferred("disabled", true)
 	
 	#pequeña animacion
-	var tween = create_tween()
-	tween.tween_property(sprite, "scale", Vector2(1.2, 1.2), 0.2)
-	tween.tween_property(sprite, "scale", Vector2(1.0, 1.0), 0.2)
+	#var tween = create_tween()
+	#tween.tween_property(sprite, "scale", Vector2(1.2, 1.2), 0.2)
+	#tween.tween_property(sprite, "scale", Vector2(1.0, 1.0), 0.2)
 
 func worldModeChanged(new_mode):
-	if not is_corrupted and new_mode != GameState.WorldMode.RED:
+	if is_corrupted:
+		return
+	if new_mode == GameState.WorldMode.GREEN:
+		set_collision_mask_value(1,true)
+		set_collision_mask_value(2,true)
+	else:
+		set_collision_mask_value(1,false)
+		set_collision_mask_value(2,true)
+		
+	if not is_corrupted and new_mode != GameState.WorldMode.GREEN:
 		sprite.modulate = normal_color
 
 func cambiaMood():
