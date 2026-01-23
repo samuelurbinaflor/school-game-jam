@@ -10,21 +10,29 @@ config_version=5
 
 [application]
 
-config/name="school game jam"
-run/main_scene="uid://bcgcsjd3eq21l"
+config/name="Cordynvasion"
+run/main_scene="uid://cnn8l7okgkd4v"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 config/autoload/GameState="res://scripts/game_state.gd"
 
 [autoload]
 
+GameHud="*res://scenes/gui/game_HUD.tscn"
 GameState="*res://scripts/game_state.gd"
+AudioPlayer="*res://scripts/audio_player.gd"
+ConfigManager="*res://scripts/config_manager.gd"
 
 [display]
 
 window/size/viewport_width=768
 window/size/viewport_height=512
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://biieoodqqngyp"
+
+[global_group]
+
+player=""
 
 [gui]
 
@@ -36,6 +44,7 @@ theme/custom_font="uid://c4f3pey4mhvhs"
 salto={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
 ]
 }
 moverDere={
