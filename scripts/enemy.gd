@@ -1,58 +1,47 @@
-extends Area2D
+extends CharacterBody2D
 
-enum EnemyType { RED, GREEN }
-@export var enemy_type: EnemyType = EnemyType.RED
+class_name Enemy
 
 var is_corrupted = false
 
-var normal_color: Color
-var corrupted_color = Color(0.3, 0.6, 1.0) 
-
-@onready var sprite = $Sprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 signal corrupted
 
+
 func _ready():
-	match enemy_type:
-		EnemyType.RED:
-			normal_color = Color(1, 0.2, 0.2) 
-		EnemyType.GREEN:
-			normal_color = Color(0.2, 1, 0.2) 
-	
-	sprite.modulate = normal_color
-	
-	body_entered.connect(_on_body_entered)
-	area_entered.connect(_on_area_entered)
-	
-	print("Enemy ", name, " tipo ", EnemyType.keys()[enemy_type], " listo")
+	GameState.mode_changed.connect(_on_mode_changed)
 
-func _on_area_entered(area):
-	print("Área detectada en enemy: ", area.name)
-	if not is_corrupted:
-		try_corrupt()
-
-func _on_body_entered(body):
-	if body.is_in_group("player") and not is_corrupted:
-		try_corrupt()
 
 func try_corrupt():
 	var can_corrupt = false
-	
-	match enemy_type:
-		EnemyType.RED:
+
+	match get_enemy_type():
+		GameState.WorldMode.RED:
 			can_corrupt = GameState.current_mode == GameState.WorldMode.RED
-		EnemyType.GREEN:
+		GameState.WorldMode.GREEN:
 			can_corrupt = GameState.current_mode == GameState.WorldMode.GREEN
-	
+
 	if can_corrupt:
 		corrupt()
 
+
 func corrupt():
 	is_corrupted = true
-	sprite.modulate = corrupted_color
-	print("Enemigo corrompido!")
+	print("Enemy corrupted!")
 	corrupted.emit()
-	
-	var tween = create_tween()
-	tween.tween_property(sprite, "scale", Vector2(1.2, 1.2), 0.2)
-	tween.tween_property(sprite, "scale", Vector2(1.0, 1.0), 0.2)
+
+
+func play_anim(anim_name: String):
+	if animated_sprite_2d and animated_sprite_2d.animation != anim_name:
+		animated_sprite_2d.play(anim_name)
+
+
+func _on_mode_changed(_new_mode):
+	# Override in child classes if needed
+	pass
+
+
+func get_enemy_type() -> GameState.WorldMode:
+	# Override in child classes to return RED or GREEN
+	return GameState.WorldMode.RED

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://jix6nr3ms86f"]
 
 [ext_resource type="Script" uid="uid://bd2iuafbstjuw" path="res://scripts/burh_platform.gd" id="1_0hqpt"]
-[ext_resource type="Texture2D" uid="uid://10201ts2gjn4" path="res://assets/tiles/level_02/med.png" id="1_p2xr3"]
+[ext_resource type="Texture2D" uid="uid://bl80acq6ihi37" path="res://assets/tiles/level_02/med.png" id="1_p2xr3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uwrco"]
 

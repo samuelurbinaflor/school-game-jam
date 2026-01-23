@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=4 uid="uid://yahmxkdpyf6v"]
+[gd_scene load_steps=20 format=4 uid="uid://yahmxkdpyf6v"]
 
 [ext_resource type="Texture2D" uid="uid://d0ygqxijs1sxo" path="res://assets/tiles/level_02/grid_02.png" id="1_3acmf"]
 [ext_resource type="Texture2D" uid="uid://b431cmjp64qlt" path="res://assets/tiles/level_02/platforms_02.png" id="1_a3l5x"]
 [ext_resource type="Texture2D" uid="uid://djo1to31ikjr1" path="res://assets/tiles/level_02/Map2 Tree Grid.png" id="2_keemd"]
 [ext_resource type="PackedScene" uid="uid://b7fekfvyoi1a6" path="res://scenes/player.tscn" id="2_yjjx0"]
 [ext_resource type="PackedScene" uid="uid://dnovuc1y15248" path="res://scenes/mushroomSwitch.tscn" id="3_a3l5x"]
+[ext_resource type="Texture2D" uid="uid://dx00lhm24u8kb" path="res://assets/tiles/colors_platform.png" id="3_n536o"]
 [ext_resource type="PackedScene" uid="uid://chiagookyitcl" path="res://scenes/platform.tscn" id="6_keemd"]
 [ext_resource type="PackedScene" uid="uid://jix6nr3ms86f" path="res://scenes/objects/Burh_platform.tscn" id="8_c6rld"]
 [ext_resource type="Texture2D" uid="uid://b52frlfnl2hrb" path="res://assets/tiles/level_02/der.png" id="8_km0xc"]
@@ -111,6 +112,20 @@ texture_region_size = Vector2i(32, 32)
 6:4/0 = 0
 6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 6.0539856, -16, 5.4167213)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m2jhg"]
+texture = ExtResource("3_n536o")
+texture_region_size = Vector2i(32, 32)
+0:0/next_alternative_id = 3
+0:0/0 = 0
+0:0/0/custom_data_0 = "Red"
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ppbiy"]
 texture = ExtResource("1_3acmf")
 texture_region_size = Vector2i(32, 32)
@@ -158,9 +173,12 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 3
+custom_data_layer_0/name = "color"
+custom_data_layer_0/type = 4
 sources/3 = SubResource("TileSetAtlasSource_ppbiy")
 sources/0 = SubResource("TileSetAtlasSource_c6rld")
 sources/1 = SubResource("TileSetAtlasSource_yklhy")
+sources/2 = SubResource("TileSetAtlasSource_m2jhg")
 
 [node name="Level02" type="Node2D"]
 

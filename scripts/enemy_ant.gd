@@ -1,31 +1,24 @@
-extends CharacterBody2D
+extends Enemy
 
 enum Comportamiento { MOVER, QUIETO }
 
 @export var comportamiento: Comportamiento = Comportamiento.MOVER
 
-@onready var RayDere = $RayCastDere
-@onready var RayIzq = $RayCastIzq
-@onready var RayDereAbajo = $RayCastAbajoDere
-@onready var area2D = $Area2D
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var ray_dere = $RayCastDere
+@onready var ray_izq = $RayCastIzq
+@onready var ray_dere_abajo = $RayCastAbajoDere
+@onready var area_2d = $Area2D
 
 var vel = 100
-var moveLeft = false
+var move_left = false
 var gravity = 10
-var is_corrupted = false
-var normal_color: Color = Color(0.808, 0.0, 0.0, 1.0)
-var corrupted_color = Color(0.3, 0.6, 1.0) 
-var haGirado = false
-
-signal corrupted
+var ha_girado = false
 
 func _ready():
-	GameState.mode_changed.connect(worldModeChanged)
-	#sprite.modulate = normal_color
+	super()
 	
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_corrupted:
 		velocity = Vector2.ZERO
 		play_anim("corrupted")
@@ -49,7 +42,7 @@ func _physics_process(delta):
 	else: 
 		velocity.y = 0
 	
-	if moveLeft:
+	if move_left:
 		velocity.x = -vel
 	else:
 		velocity.x = vel
@@ -66,55 +59,45 @@ func _physics_process(delta):
 
 func vuelta():
 	var gira = false
-	if haGirado:
-		var noColision = true
-		if moveLeft and RayIzq.is_colliding():
-			noColision = false
-		elif not moveLeft and RayDere.is_colliding():
-			noColision = false
+	if ha_girado:
+		var no_colision = true
+		if move_left and ray_izq.is_colliding():
+			no_colision = false
+		elif not move_left and ray_dere.is_colliding():
+			no_colision = false
 		
-		if noColision:
-			haGirado = false
+		if no_colision:
+			ha_girado = false
 		return
 			
-	if not RayDereAbajo.is_colliding():
+	if not ray_dere_abajo.is_colliding():
 		gira = true
-	if moveLeft and RayIzq.is_colliding():
+	if move_left and ray_izq.is_colliding():
 		gira = true
-	elif not moveLeft and RayDere.is_colliding():
+	elif not move_left and ray_dere.is_colliding():
 		gira = true
 	
 	if gira:
-		moveLeft = !moveLeft
+		move_left = !move_left
 		scale.x = -scale.x
-		haGirado = true
+		ha_girado = true
 
-func worldModeChanged(new_mode):
-	if new_mode == GameState.WorldMode.RED:
-		set_collision_mask_value(1,true)
-		set_collision_mask_value(2,true)
-		#collision.disabled = false
+func _on_mode_changed(_new_mode):
+	if _new_mode == GameState.WorldMode.RED:
+		set_collision_mask_value(1, true)
+		set_collision_mask_value(2, true)
 	else:
-		set_collision_mask_value(1,false)
-		set_collision_mask_value(2,true)
-		#collision.disabled = true
-		
+		set_collision_mask_value(1, false)
+		set_collision_mask_value(2, true)
+	
 	if is_corrupted:
 		return
 
-#func corrupt():
-	#is_corrupted = true
-	#animated_sprite_2d.play("corrupted")
-	#sprite.modulate = corrupted_color
-	#print("El enemigo ahora es azul")
-	
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") and GameState.current_mode == GameState.WorldMode.RED and not is_corrupted:
-		print("El enemigo esta corrupto")
-		is_corrupted = true
-		set_collision_mask_value(1, false)
-		corrupted.emit()
-		
-func play_anim(name: String):
-	if animated_sprite_2d.animation != name:
-		animated_sprite_2d.play(name)
+	if body.is_in_group("player") and \
+	   GameState.current_mode == GameState.WorldMode.RED and \
+	   not is_corrupted:
+		try_corrupt()
+
+func get_enemy_type() -> GameState.WorldMode:
+	return GameState.WorldMode.RED
