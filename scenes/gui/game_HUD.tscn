@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://yyt2l2ctk1dt"]
+[gd_scene load_steps=8 format=3 uid="uid://yyt2l2ctk1dt"]
 
 [ext_resource type="Script" uid="uid://c8wtqmtn4y2q2" path="res://scripts/gui/gui.gd" id="1_2nda2"]
 [ext_resource type="PackedScene" uid="uid://ddlllj86txfp3" path="res://scenes/gui/settings.tscn" id="1_je58v"]
+[ext_resource type="PackedScene" uid="uid://cpq8whq61d61l" path="res://scenes/gui/mushroom_counter.tscn" id="2_flmts"]
 [ext_resource type="PackedScene" uid="uid://bva1gkdhwrvx" path="res://scenes/gui/time_progress.tscn" id="3_kdedy"]
 [ext_resource type="Texture2D" uid="uid://or4jrnino1r5" path="res://assets/ui/lucid/Pause.png" id="3_qkglv"]
 [ext_resource type="PackedScene" uid="uid://1tob7x66tck4" path="res://scenes/gui/pause_menu.tscn" id="5_flmts"]
@@ -11,10 +12,22 @@
 layer = 2
 script = ExtResource("1_2nda2")
 
+[node name="MushroomCounter" parent="." instance=ExtResource("2_flmts")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -138.0
+offset_top = 5.0
+offset_right = -138.0
+offset_bottom = 5.0
+grow_horizontal = 0
+
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
+alignment_horizontal = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer"]
 layout_mode = 2
@@ -27,11 +40,13 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 
 [node name="PauseButton" type="Button" parent="."]
+visible = false
 offset_left = 8.0
 offset_top = 8.0
-offset_right = 38.0
-offset_bottom = 38.0
+offset_right = 48.0
+offset_bottom = 48.0
 icon = ExtResource("3_qkglv")
+icon_alignment = 1
 script = ExtResource("5_retkk")
 metadata/_custom_type_script = "uid://bdoig1y0xb5wj"
 

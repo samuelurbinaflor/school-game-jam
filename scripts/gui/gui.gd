@@ -1,9 +1,13 @@
 extends Node
 
+var corrupted_count = 0
+
 func _ready() -> void:
 	print("GUI _ready() called")
 	$Settings.hide()
 	$PauseButton.hide()
+	$MushroomCounter.hide()
+	_update_mushroom_counter()
 
 	# Listen for scene changes
 	get_tree().scene_changed.connect(_on_scene_changed)
@@ -14,6 +18,8 @@ func _ready() -> void:
 
 func _on_scene_changed() -> void:
 	print("Scene changed, checking for level...")
+	corrupted_count = 0
+	_update_mushroom_counter()
 	_check_and_start_timer()
 
 
@@ -23,7 +29,9 @@ func _check_and_start_timer() -> void:
 
 	if has_level_scene():
 		print("Level scene found!")
+		_connect_enemy_signals()
 		$PauseButton.show()
+		$MushroomCounter.show()
 		start_timer()
 
 
@@ -39,6 +47,31 @@ func has_level_scene() -> bool:
 			return true
 	return false
 
+func _connect_enemy_signals() -> void:
+	var root = get_tree().root
+	for child in root.get_children():
+		if child.name.contains("level") or child.has_node("Player"):
+			_connect_enemies_in_scene(child)
+
+func _connect_enemies_in_scene(node: Node) -> void:
+	var enemies = node.find_children("*", "Node", true)
+	print("Found ", enemies.size(), " total children")
+	for enemy in enemies:
+		# Check if it has the corrupted signal
+		if enemy.has_signal("corrupted"):
+			print("Connecting to: ", enemy.name)
+			enemy.corrupted.connect(_on_enemy_corrupted)
+		elif enemy.is_in_group("enemies") or "enemy" in enemy.name.to_lower():
+			print("Found potential enemy but no signal: ", enemy.name)
+
+func _on_enemy_corrupted() -> void:
+	corrupted_count += 1
+	print("Enemy corrupted signal received!")
+	_update_mushroom_counter()
+
+func _update_mushroom_counter() -> void:
+	var label = $MushroomCounter/Label
+	label.text = "%d" % corrupted_count
 
 func start_timer() -> void:
 	# Try to find TimeProgress in the tree

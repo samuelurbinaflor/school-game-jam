@@ -16,6 +16,8 @@ var normal_color: Color = Color(0.104, 0.626, 0.228, 1.0)
 var corrupted_color = Color(0.3, 0.6, 1.0) 
 var gravity = 500
 
+signal corrupted
+
 enum patronVuelo { float, horizontal, vertical, circle }
 @export var vuelo: patronVuelo = patronVuelo.horizontal
 @export var distanciaV = 50 #distancia max v
@@ -120,6 +122,7 @@ func corrupt():
 		is_corrupted = true
 		sprite.modulate = corrupted_color
 		print("Pitijopo corrompido?")
+		corrupted.emit()
 		
 		set_collision_mask_value(1,false)
 		#if collision:

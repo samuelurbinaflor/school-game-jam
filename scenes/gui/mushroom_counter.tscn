@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpq8whq61d61l"]
+
+[ext_resource type="Texture2D" uid="uid://si57jvhxxwwb" path="res://assets/ui/contador.png" id="1_lgxgi"]
+[ext_resource type="FontFile" uid="uid://cjk87afmb8cb6" path="res://theme/DungeonFont.ttf" id="2_6pv7r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hmcnf"]
+font = ExtResource("2_6pv7r")
+font_size = 36
+font_color = Color(0.18039216, 0.14117648, 0.15294118, 1)
+outline_size = 6
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_right = 0.052
+anchor_bottom = 0.074
+offset_right = -39.936
+offset_bottom = -37.888
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 73.0
+offset_bottom = 73.0
+texture = ExtResource("1_lgxgi")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -6.9999986
+offset_top = 22.0
+offset_right = 42.602688
+offset_bottom = 65.0
+rotation = -0.6143559
+text = "08"
+label_settings = SubResource("LabelSettings_hmcnf")
+horizontal_alignment = 1
+vertical_alignment = 1
