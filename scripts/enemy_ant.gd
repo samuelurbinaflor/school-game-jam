@@ -12,6 +12,7 @@ var gravity = 10
 var is_corrupted = false
 var normal_color: Color = Color(0.808, 0.0, 0.0, 1.0)
 var corrupted_color = Color(0.3, 0.6, 1.0) 
+var haGirado = false
 
 func _ready():
 	GameState.mode_changed.connect(worldModeChanged)
@@ -42,7 +43,17 @@ func _physics_process(delta):
 
 func vuelta():
 	var gira = false
-	
+	if haGirado:
+		var noColision = true
+		if moveLeft and RayIzq.is_colliding():
+			noColision = false
+		elif not moveLeft and RayDere.is_colliding():
+			noColision = false
+		
+		if noColision:
+			haGirado = false
+		return
+			
 	if not RayDereAbajo.is_colliding():
 		gira = true
 	if moveLeft and RayIzq.is_colliding():
@@ -53,6 +64,7 @@ func vuelta():
 	if gira:
 		moveLeft = !moveLeft
 		scale.x = -scale.x
+		haGirado = true
 
 func worldModeChanged(new_mode):
 	if is_corrupted:
