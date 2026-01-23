@@ -37,6 +37,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="TimeProgress" parent="AspectRatioContainer/MarginContainer" instance=ExtResource("3_kdedy")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="PauseButton" type="Button" parent="."]
