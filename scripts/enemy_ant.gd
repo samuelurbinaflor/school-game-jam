@@ -14,6 +14,8 @@ var normal_color: Color = Color(0.808, 0.0, 0.0, 1.0)
 var corrupted_color = Color(0.3, 0.6, 1.0) 
 var haGirado = false
 
+signal corrupted
+
 func _ready():
 	GameState.mode_changed.connect(worldModeChanged)
 	#sprite.modulate = normal_color
@@ -101,6 +103,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		is_corrupted = true
 		animated_sprite_2d.play("corrupted")
 		set_collision_mask_value(1, false)
+		corrupted.emit()
 		
 func play_anim(name: String):
 	if animated_sprite_2d.animation != name:

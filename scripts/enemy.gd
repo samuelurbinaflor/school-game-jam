@@ -10,6 +10,8 @@ var corrupted_color = Color(0.3, 0.6, 1.0)
 
 @onready var sprite = $Sprite2D
 
+signal corrupted
+
 func _ready():
 	match enemy_type:
 		EnemyType.RED:
@@ -49,6 +51,7 @@ func corrupt():
 	is_corrupted = true
 	sprite.modulate = corrupted_color
 	print("Enemigo corrompido!")
+	corrupted.emit()
 	
 	var tween = create_tween()
 	tween.tween_property(sprite, "scale", Vector2(1.2, 1.2), 0.2)
