@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3guxwcjau4j0"]
+
+[sub_resource type="Gradient" id="Gradient_f4mfi"]
+offsets = PackedFloat32Array(0, 0.9831933)
+colors = PackedColorArray(0, 0, 0, 1, 0.47526515, 0.038784944, 0.08005638, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6qhcs"]
+gradient = SubResource("Gradient_f4mfi")
+fill_from = Vector2(0, 0.17948718)
+fill_to = Vector2(0, 1)
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Panel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 777.0
+offset_bottom = 518.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_6qhcs")
+
+[node name="LabelTitulo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 225.0
+offset_top = 20.0
+offset_right = 540.0
+offset_bottom = 121.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 128.0
+offset_right = 645.0
+offset_bottom = 489.0
+theme_override_font_sizes/font_size = 24
+text = "Samuel Urbina Flor	       	          Productor
+
+Manuel Amaya Orozco	        	      Diseñador
+
+David López Carrasco	             Artista
+
+Santiago García Guzmán	           Audio
+
+Paula Rumeu Romero	         	      Audio
+
+Cristina Morgado Núñez	        	    Programadora
+
+Lola Cáceres Fernández	        	   Programadora"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+volume_db = -30.0
+autoplay = true
+bus = &"Music"
