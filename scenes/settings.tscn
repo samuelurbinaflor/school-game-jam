@@ -1,0 +1,360 @@
+[gd_scene load_steps=10 format=3 uid="uid://l7x847j376ng"]
+
+[ext_resource type="Texture2D" uid="uid://cnwrhkw60dydy" path="res://assets/ui/vol0.png" id="1_6wm04"]
+[ext_resource type="Script" uid="uid://dqubqjhv7w2qq" path="res://scripts/audio.gd" id="1_f4mfi"]
+[ext_resource type="Texture2D" uid="uid://cnwv18khqlne" path="res://assets/ui/Minus.png" id="2_f4mfi"]
+[ext_resource type="Texture2D" uid="uid://cg07cpf5li811" path="res://assets/ui/Plus.png" id="3_es4n0"]
+[ext_resource type="Texture2D" uid="uid://dqydb7pvakbw4" path="res://assets/ui/Chevron-Arrow-Down.png" id="5_es4n0"]
+[ext_resource type="Script" uid="uid://bss4ajayj3ott" path="res://scripts/language.gd" id="5_gis3k"]
+
+[sub_resource type="Gradient" id="Gradient_f4mfi"]
+colors = PackedColorArray(0, 0, 0, 1, 1.3957917e-06, 0.60578144, 0.31585315, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_es4n0"]
+gradient = SubResource("Gradient_f4mfi")
+fill_from = Vector2(0, 0.17094018)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_manaa"]
+font_size = 20
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_es4n0")
+
+[node name="AjustesLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 133.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 90
+text = "ui_settings"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MarginContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 161.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer"]
+layout_mode = 2
+tab_alignment = 1
+current_tab = 1
+
+[node name="Audio" type="AspectRatioContainer" parent="MarginContainer/TabContainer"]
+visible = false
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+script = ExtResource("1_f4mfi")
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/Audio"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/Audio/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="MasterBus" type="HBoxContainer" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="AudioLabel" type="Label" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterBus"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Master"
+label_settings = SubResource("LabelSettings_manaa")
+uppercase = true
+
+[node name="MuteButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterBus"]
+layout_mode = 2
+toggle_mode = true
+icon = ExtResource("1_6wm04")
+flat = true
+
+[node name="MinusButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterBus"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+icon = ExtResource("2_f4mfi")
+flat = true
+icon_alignment = 1
+
+[node name="Slider" type="HSlider" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterBus"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+value = 50.0
+rounded = true
+tick_count = 4
+ticks_position = 3
+
+[node name="PlusButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MasterBus"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+icon = ExtResource("3_es4n0")
+flat = true
+icon_alignment = 1
+
+[node name="MusicBus" type="HBoxContainer" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="AudioLabel" type="Label" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicBus"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "ui_music"
+label_settings = SubResource("LabelSettings_manaa")
+
+[node name="MuteButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicBus"]
+layout_mode = 2
+toggle_mode = true
+icon = ExtResource("1_6wm04")
+flat = true
+
+[node name="MinusButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicBus"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+icon = ExtResource("2_f4mfi")
+flat = true
+icon_alignment = 1
+
+[node name="Slider" type="HSlider" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicBus"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+value = 50.0
+rounded = true
+tick_count = 4
+ticks_position = 3
+
+[node name="PlusButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/MusicBus"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+icon = ExtResource("3_es4n0")
+flat = true
+icon_alignment = 1
+
+[node name="SFXBus" type="HBoxContainer" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="AudioLabel" type="Label" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXBus"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "ui_sfx"
+label_settings = SubResource("LabelSettings_manaa")
+uppercase = true
+
+[node name="MuteButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXBus"]
+layout_mode = 2
+toggle_mode = true
+icon = ExtResource("1_6wm04")
+flat = true
+
+[node name="MinusButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXBus"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+icon = ExtResource("2_f4mfi")
+flat = true
+icon_alignment = 1
+
+[node name="Slider" type="HSlider" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXBus"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+value = 50.0
+rounded = true
+tick_count = 4
+ticks_position = 3
+
+[node name="PlusButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/SFXBus"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+icon = ExtResource("3_es4n0")
+flat = true
+icon_alignment = 1
+
+[node name="UIBus" type="HBoxContainer" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="AudioLabel" type="Label" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/UIBus"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "ui_ui"
+label_settings = SubResource("LabelSettings_manaa")
+uppercase = true
+
+[node name="MuteButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/UIBus"]
+layout_mode = 2
+toggle_mode = true
+icon = ExtResource("1_6wm04")
+flat = true
+
+[node name="MinusButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/UIBus"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+icon = ExtResource("2_f4mfi")
+flat = true
+icon_alignment = 1
+
+[node name="Slider" type="HSlider" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/UIBus"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+value = 50.0
+rounded = true
+tick_count = 4
+ticks_position = 3
+
+[node name="PlusButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/UIBus"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+icon = ExtResource("3_es4n0")
+flat = true
+icon_alignment = 1
+
+[node name="BugsBus" type="HBoxContainer" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="AudioLabel" type="Label" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/BugsBus"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "ui_bugs"
+label_settings = SubResource("LabelSettings_manaa")
+
+[node name="MuteButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/BugsBus"]
+layout_mode = 2
+toggle_mode = true
+icon = ExtResource("1_6wm04")
+flat = true
+
+[node name="MinusButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/BugsBus"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+icon = ExtResource("2_f4mfi")
+flat = true
+icon_alignment = 1
+
+[node name="Slider" type="HSlider" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/BugsBus"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+value = 50.0
+rounded = true
+tick_count = 4
+ticks_position = 3
+
+[node name="PlusButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/BugsBus"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+icon = ExtResource("3_es4n0")
+flat = true
+icon_alignment = 1
+
+[node name="AmbienteBus" type="HBoxContainer" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="AudioLabel" type="Label" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/AmbienteBus"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "ui_ambiente"
+label_settings = SubResource("LabelSettings_manaa")
+
+[node name="MuteButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/AmbienteBus"]
+layout_mode = 2
+toggle_mode = true
+icon = ExtResource("1_6wm04")
+flat = true
+
+[node name="MinusButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/AmbienteBus"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+icon = ExtResource("2_f4mfi")
+flat = true
+icon_alignment = 1
+
+[node name="Slider" type="HSlider" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/AmbienteBus"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+value = 50.0
+rounded = true
+tick_count = 4
+ticks_position = 3
+
+[node name="PlusButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginContainer/VBoxContainer/AmbienteBus"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+icon = ExtResource("3_es4n0")
+flat = true
+icon_alignment = 1
+
+[node name="ResetButton" type="Button" parent="MarginContainer/TabContainer/Audio"]
+custom_minimum_size = Vector2(200, 36)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "ui_reset"
+
+[node name="ui_language" type="AspectRatioContainer" parent="MarginContainer/TabContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+script = ExtResource("5_gis3k")
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/ui_language"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/TabContainer/ui_language/MarginContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 35
+theme_override_icons/arrow = ExtResource("5_es4n0")
+alignment = 1
+selected = 1
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Español"
+popup/item_1/id = 1
+
+[connection signal="pressed" from="MarginContainer/TabContainer/Audio/ResetButton" to="MarginContainer/TabContainer/Audio" method="_on_reset_button_pressed"]
