@@ -12,7 +12,6 @@ Local Game Jam del 15 al 23 de Enero
 
 Este proyecto utiliza recursos de terceros cuyas licencias se pueden encontrar en los siguientes archivos y enlaces:
 
-- **Godot Engine** - [Licencia](https://godotengine.org/license)
 - Pixabay audio - [Licencia](https://pixabay.com/es/service/license-summary/)
   - **Prado florido** by AudioCoffee - [Enlace](https://pixabay.com/es/music/optimista-spring-time-214556/)
   - **Bosque Bullicioso** by Grand_Project - [Enlace](https://pixabay.com/es/music/caricaturas-sprinkle-of-trouble-short-2-comedy-407155/)
