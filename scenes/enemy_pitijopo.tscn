@@ -15,8 +15,8 @@ scale = Vector2(0.6920744, 0.6808883)
 collision_layer = 4
 script = ExtResource("1_usb33")
 vuelo = 2
-distanciaV = 400
-distanciaH = 300
+distanciaV = 100
+distanciaH = 200
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(3.8146973e-06, 1.0000038)
