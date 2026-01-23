@@ -11,6 +11,8 @@ extends Area2D
 @onready var sprite = $Sprite2D
 var is_pressed := false
 
+const POP_SOUND = preload("res://assets/audio/sfx/rising-bubbly-pop-351023.mp3")
+
 func _ready():
 	# Solo conectamos señales si estamos jugando, no en el editor 
 	if not Engine.is_editor_hint():
@@ -30,6 +32,12 @@ func _on_body_exited(body):
 func activate():
 	is_pressed = true
 	GameState.switch_mode(switch_type)
+	
+	# Reproducir sonido
+	var pop_audio = AudioStreamPlayer2D.new()
+	pop_audio.stream = POP_SOUND
+	add_child(pop_audio)
+	pop_audio.play()
 
 	var tween = create_tween()
 	tween.tween_property(sprite, "scale", Vector2(0.9, 0.8), 0.1)

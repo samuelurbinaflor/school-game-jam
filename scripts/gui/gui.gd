@@ -1,6 +1,6 @@
 extends Node
 
-var corrupted_count = 0
+var corrupted_count = 9
 
 func _ready() -> void:
 	print("GUI _ready() called")
@@ -18,7 +18,6 @@ func _ready() -> void:
 
 func _on_scene_changed() -> void:
 	print("Scene changed, checking for level...")
-	corrupted_count = 0
 	_update_mushroom_counter()
 	_check_and_start_timer()
 
@@ -65,9 +64,16 @@ func _connect_enemies_in_scene(node: Node) -> void:
 			print("Found potential enemy but no signal: ", enemy.name)
 
 func _on_enemy_corrupted() -> void:
-	corrupted_count += 1
+	corrupted_count -= 1
 	print("Enemy corrupted signal received!")
 	_update_mushroom_counter()
+	
+	# Si llegamos a 0, cambiar a escena de créditos
+	if corrupted_count <= 0:
+		print("All enemies corrupted! Going to credits...")
+		_hide_and_stop_ui()
+		get_tree().paused = false
+		get_tree().change_scene_to_file("res://scenes/gui/credits.tscn")
 
 func _update_mushroom_counter() -> void:
 	var label = $MushroomCounter/Label
@@ -79,9 +85,28 @@ func start_timer() -> void:
 	print("Looking for TimeProgress...")
 	if time_progress:
 		print("Timer started!")
+		time_progress.time_finished.connect(_on_time_finished)
 		time_progress.start()
 	else:
 		print("TimeProgress node not found in the tree")
+
+
+func _on_time_finished() -> void:
+	_hide_and_stop_ui()
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+
+
+func _hide_and_stop_ui() -> void:
+	# Esconder contador
+	$MushroomCounter.hide()
+	
+	# Esconder y parar temporizador
+	var time_progress = get_tree().root.find_child("TimeProgress", true, false)
+	if time_progress:
+		time_progress.stop()
+		time_progress.hide()
+	get_tree().reload_current_scene()
 
 
 func _input(event: InputEvent) -> void:
