@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjvwtvpb5yrgl"]
+[gd_scene load_steps=12 format=3 uid="uid://bjvwtvpb5yrgl"]
 
 [ext_resource type="Texture2D" uid="uid://c0tuqe6fcpm4f" path="res://assets/ui/lucid/Play.png" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://cto12x8qlqpjs" path="res://assets/ui/lucid/Gear.png" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://5shptknrxavo" path="res://scripts/gui/main_menu.gd" id="1_wu84c"]
 [ext_resource type="Script" uid="uid://bdoig1y0xb5wj" path="res://scripts/components/audio_button.gd" id="2_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://by4t0ry8uj51f" path="res://assets/Ornate Retro UI/grabber0.png" id="5_lel3l"]
 [ext_resource type="AudioStream" uid="uid://dyaycgid55pon" path="res://assets/audio/music/shake-it-up.mp3" id="5_x41oi"]
 [ext_resource type="Texture2D" uid="uid://si57jvhxxwwb" path="res://assets/ui/contador.png" id="6_v87vn"]
 [ext_resource type="Texture2D" uid="uid://dghaopy7k5l2i" path="res://assets/ui/BlackAnt.png" id="7_buj57"]
@@ -85,6 +86,16 @@ expand_icon = true
 script = ExtResource("2_bqqt6")
 metadata/_custom_type_script = "uid://bdoig1y0xb5wj"
 
+[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "ui_credits"
+icon = ExtResource("5_lel3l")
+alignment = 2
+expand_icon = true
+script = ExtResource("2_bqqt6")
+metadata/_custom_type_script = "uid://bdoig1y0xb5wj"
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_x41oi")
 autoplay = true
@@ -105,3 +116,4 @@ flip_h = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

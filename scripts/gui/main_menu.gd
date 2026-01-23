@@ -12,3 +12,7 @@ func _on_settings_button_pressed() -> void:
 		var settings_instance = settings_scene.instantiate()
 		add_child(settings_instance)
 		settings_instance.show_settings()
+
+
+func _on_credits_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/gui/credits.tscn")

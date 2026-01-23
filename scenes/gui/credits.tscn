@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdujkrlkxbx8o"]
+[gd_scene load_steps=8 format=3 uid="uid://cdujkrlkxbx8o"]
 
+[ext_resource type="Script" uid="uid://c7wje0pjadmic" path="res://scripts/gui/credits.gd" id="1_mhwvu"]
 [ext_resource type="AudioStream" uid="uid://nr2vecmprmuk" path="res://assets/audio/music/positive-eurodance-acoustic-pop-loop.mp3" id="1_srgkq"]
+[ext_resource type="Texture2D" uid="uid://b7sfy60pudgnf" path="res://assets/ui/lucid/Home.png" id="2_kk1ou"]
+[ext_resource type="Script" uid="uid://bdoig1y0xb5wj" path="res://scripts/components/audio_button.gd" id="3_0snsv"]
+[ext_resource type="Texture2D" uid="uid://bkeppgcpisaak" path="res://assets/ui/cabesa.png" id="4_0snsv"]
 
 [sub_resource type="Gradient" id="Gradient_f4mfi"]
-offsets = PackedFloat32Array(0, 0.9831933)
-colors = PackedColorArray(0, 0, 0, 1, 0.47526515, 0.038784944, 0.08005638, 1)
+offsets = PackedFloat32Array(0.8389513, 0.9831933)
+colors = PackedColorArray(0, 0, 0, 1, 0.09411765, 0.5647059, 0.8980392, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_6qhcs"]
 gradient = SubResource("Gradient_f4mfi")
@@ -13,17 +17,18 @@ fill_to = Vector2(0, 1)
 
 [node name="Credits" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mhwvu")
 
 [node name="Panel" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -5.0
-offset_top = -5.0
-offset_right = 777.0
-offset_bottom = 518.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_6qhcs")
@@ -32,39 +37,133 @@ texture = SubResource("GradientTexture2D_6qhcs")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 225.0
-offset_top = 20.0
-offset_right = 540.0
-offset_bottom = 121.0
+offset_bottom = 127.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 100
 text = "Credits"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 143.0
-offset_top = 128.0
-offset_right = 645.0
-offset_bottom = 489.0
-theme_override_font_sizes/font_size = 24
-text = "Samuel Urbina Flor	       	          Productor
-
-Manuel Amaya Orozco	        	      Diseñador
-
-David López Carrasco	             Artista
-
-Santiago García Guzmán	           Audio
-
-Paula Rumeu Romero	         	      Audio
-
-Cristina Morgado Núñez	        	    Programadora
-
-Lola Cáceres Fernández	        	   Programadora"
-
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_srgkq")
 volume_db = -30.0
 autoplay = true
 bus = &"Music"
+
+[node name="BackHomeButton" type="Button" parent="."]
+self_modulate = Color(1.1208801, 2.016328, 2.7867634, 0.988)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+icon = ExtResource("2_kk1ou")
+icon_alignment = 1
+script = ExtResource("3_0snsv")
+sound = "back"
+metadata/_custom_type_script = "uid://bdoig1y0xb5wj"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -353.0
+offset_right = 200.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 14
+columns = 2
+
+[node name="Label10" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Cristina Morgado Núñez	 "
+
+[node name="Label12" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "ui_programming"
+horizontal_alignment = 2
+
+[node name="Label13" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Lola Cáceres Fernández"
+
+[node name="Label14" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "ui_programming"
+horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Samuel Urbina Flor	"
+
+[node name="Label2" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "ui_production"
+horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Manuel Amaya Orozco"
+
+[node name="Label4" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "ui_design"
+horizontal_alignment = 2
+
+[node name="Label9" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Paula Rumeu Romero	     "
+horizontal_alignment = 1
+
+[node name="Label11" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "ui_audio"
+horizontal_alignment = 2
+
+[node name="Label5" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "David López Carrasco"
+
+[node name="Label6" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "ui_art"
+horizontal_alignment = 2
+
+[node name="Label7" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Santiago García Guzmán	  "
+
+[node name="Label8" type="Label" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "ui_audio"
+horizontal_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(468.99997, 392.00003)
+rotation = 0.3801572
+scale = Vector2(4.1953125, 4.1953125)
+texture = ExtResource("4_0snsv")
+
+[connection signal="pressed" from="BackHomeButton" to="." method="_on_back_home_button_pressed"]
