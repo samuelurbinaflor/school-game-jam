@@ -37,9 +37,9 @@ func reset_counter():
 	# Get the GUI node and reset the counter
 	var gui = get_tree().root.find_child("GameHud", true, false)
 	if gui:
-		gui.corrupted_count = 1
+		gui.corrupted_count = 9
 		gui._update_mushroom_counter()
-		print("Counter resetted to 1")
+		print("Counter resetted to 9")
 
 func get_overlay_color() -> Color:
 	match current_mode:

@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3guxwcjau4j0"]
+[gd_scene load_steps=4 format=3 uid="uid://cdujkrlkxbx8o"]
+
+[ext_resource type="AudioStream" uid="uid://nr2vecmprmuk" path="res://assets/audio/music/positive-eurodance-acoustic-pop-loop.mp3" id="1_srgkq"]
 
 [sub_resource type="Gradient" id="Gradient_f4mfi"]
 offsets = PackedFloat32Array(0, 0.9831933)
@@ -62,6 +64,7 @@ Cristina Morgado Núñez	        	    Programadora
 Lola Cáceres Fernández	        	   Programadora"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_srgkq")
 volume_db = -30.0
 autoplay = true
 bus = &"Music"
