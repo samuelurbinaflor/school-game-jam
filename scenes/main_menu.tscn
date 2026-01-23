@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnn8l7okgkd4v"]
+
+[sub_resource type="Gradient" id="Gradient_f4mfi"]
+colors = PackedColorArray(0, 0, 0, 1, 1.3957917e-06, 0.60578144, 0.31585315, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vue75"]
+gradient = SubResource("Gradient_f4mfi")
+fill_from = Vector2(0, 0.17094018)
+fill_to = Vector2(0, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_vue75")
+
+[node name="AjustesLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 188.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "Cordynvasion"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MarginContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 188.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "ui_start"
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "ui_settings"

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=27 format=3 uid="uid://chd4lg26jo6hf"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://chd4lg26jo6hf"]
 
 [ext_resource type="Texture2D" uid="uid://dnlkyuxixkck0" path="res://assets/Ornate Retro UI/BrownUP.png" id="1_afw5t"]
 [ext_resource type="Texture2D" uid="uid://qhw4kj1j0qot" path="res://assets/Ornate Retro UI/panelFull.png" id="1_os614"]
@@ -163,40 +163,11 @@ modulate_color = Color(0.68307734, 0.6830774, 0.68307734, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_75705"]
 
 [resource]
-BoxContainer/constants/separation = 0
-BoxContainer/styles/normal = SubResource("StyleBoxTexture_dut6s")
-Button/colors/icon_normal_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
-Button/font_sizes/font_size = 18
-Button/styles/disabled = SubResource("StyleBoxTexture_t4k2v")
-Button/styles/focus = SubResource("StyleBoxFlat_os614")
-Button/styles/hover = SubResource("StyleBoxTexture_1knni")
-Button/styles/hover_pressed = SubResource("StyleBoxTexture_fqy7u")
-Button/styles/normal = SubResource("StyleBoxTexture_1g5yx")
-Button/styles/pressed = SubResource("StyleBoxTexture_dkcgw")
-HScrollBar/styles/grabber = SubResource("StyleBoxTexture_egqfp")
-HSlider/icons/grabber = ExtResource("5_adhqp")
-HSlider/icons/grabber_disabled = ExtResource("5_adhqp")
-HSlider/icons/grabber_highlight = ExtResource("5_adhqp")
-HSlider/icons/tick = null
-HSlider/styles/grabber_area = SubResource("StyleBoxFlat_adhqp")
-HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_t4k2v")
-HSlider/styles/slider = SubResource("StyleBoxTexture_0nqb6")
+BoxContainer/constants/separation = 16
 MarginContainer/constants/margin_bottom = 150
 MarginContainer/constants/margin_left = 150
 MarginContainer/constants/margin_right = 150
 MarginContainer/constants/margin_top = 150
-PanelContainer/styles/panel = SubResource("StyleBoxTexture_cibxr")
-PopupMenu/font_sizes/font_size = 24
-PopupMenu/styles/embedded_border = SubResource("StyleBoxLine_adhqp")
-PopupMenu/styles/panel = SubResource("StyleBoxFlat_m8g5i")
-PopupPanel/styles/panel = SubResource("StyleBoxFlat_a7tdx")
-TabContainer/constants/icon_separation = 9
-TabContainer/constants/tab_separation = 18
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_5fetd")
+TabContainer/constants/tab_separation = 10
 TabContainer/font_sizes/font_size = 22
-TabContainer/styles/panel = SubResource("StyleBoxTexture_adhqp")
-TabContainer/styles/tab_disabled = SubResource("StyleBoxTexture_m8g5i")
-TabContainer/styles/tab_focus = SubResource("StyleBoxTexture_m8g5i")
-TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_m8g5i")
-TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_m8g5i")
-TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_a7tdx")
-Tree/styles/panel = SubResource("StyleBoxTexture_75705")
