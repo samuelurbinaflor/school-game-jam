@@ -1,16 +1,30 @@
 extends CharacterBody2D
 
 const vel = 200.0
-const jumpVel = -600.0 #era constante
+const jumpVel = -400.0 #era constante
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
+#Jump buffer
+var jump_buffer_time := 0.12 # segundos que se guarda el input
+var jump_buffer := 0.0
 
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	if Input.is_action_just_pressed("salto") and is_on_floor():
+	#if Input.is_action_just_pressed("salto") and is_on_floor():
+		#velocity.y = jumpVel
+
+	# ───── JUMP BUFFER ─────
+	if Input.is_action_just_pressed("salto"):
+		jump_buffer = jump_buffer_time
+	else:
+		jump_buffer -= delta
+
+	if jump_buffer > 0 and is_on_floor():
 		velocity.y = jumpVel
+		jump_buffer = 0
 
 	var direc = Input.get_axis("moverIzq", "moverDere")
 	if direc:
