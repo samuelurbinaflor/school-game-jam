@@ -15,6 +15,7 @@ var normal_color: Color = Color(0.808, 0.0, 0.0, 1.0)
 var corrupted_color = Color(0.3, 0.6, 1.0) 
 var haGirado = false
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 
 enum Mood {idle, walk}
@@ -23,6 +24,8 @@ var timeMood = 0
 @export var minMood = 2.0 #tiempos para la duracion del modo en el que estara la hormiga (andar o idle)
 @export var maxMood = 5.0
 var normalMood = 3.0
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 enum Mood {idle, walk}
@@ -73,6 +76,17 @@ func _physics_process(delta):
 
 func vuelta():
 	var gira = false
+	if haGirado:
+		var noColision = true
+		if moveLeft and RayIzq.is_colliding():
+			noColision = false
+		elif not moveLeft and RayDere.is_colliding():
+			noColision = false
+		
+		if noColision:
+			haGirado = false
+		return
+			
 	if not RayDereAbajo.is_colliding():
 		gira = true
 	if moveLeft and RayIzq.is_colliding():
