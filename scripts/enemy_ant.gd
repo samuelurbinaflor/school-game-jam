@@ -13,6 +13,16 @@ var is_corrupted = false
 var normal_color: Color = Color(0.808, 0.0, 0.0, 1.0)
 var corrupted_color = Color(0.3, 0.6, 1.0) 
 var haGirado = false
+<<<<<<< Updated upstream
+=======
+
+enum Mood {idle, walk}
+var mood = Mood.walk
+var timeMood = 0
+@export var minMood = 2.0 #tiempos para la duracion del modo en el que estara la hormiga (andar o idle)
+@export var maxMood = 5.0
+var normalMood = 3.0
+>>>>>>> Stashed changes
 
 func _ready():
 	GameState.mode_changed.connect(worldModeChanged)
