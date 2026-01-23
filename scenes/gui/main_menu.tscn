@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://bjvwtvpb5yrgl"]
 
-[ext_resource type="Texture2D" path="res://assets/ui/lucid/Play.png" id="1_ekxnf"]
-[ext_resource type="Texture2D" path="res://assets/ui/lucid/Gear.png" id="1_l6cm7"]
-[ext_resource type="Script" path="res://scripts/gui/main_menu.gd" id="1_wu84c"]
-[ext_resource type="Script" path="res://scripts/components/audio_button.gd" id="2_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://c0tuqe6fcpm4f" path="res://assets/ui/lucid/Play.png" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://cto12x8qlqpjs" path="res://assets/ui/lucid/Gear.png" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://5shptknrxavo" path="res://scripts/gui/main_menu.gd" id="1_wu84c"]
+[ext_resource type="Script" uid="uid://bdoig1y0xb5wj" path="res://scripts/components/audio_button.gd" id="2_bqqt6"]
 [ext_resource type="AudioStream" uid="uid://dmgwmo0xw3fmg" path="res://assets/audio/music/prado_florido.mp3" id="5_x41oi"]
 
 [sub_resource type="Gradient" id="Gradient_f4mfi"]
