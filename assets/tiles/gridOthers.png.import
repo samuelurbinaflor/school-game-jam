@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4rc5bh1ps2jh"
-path="res://.godot/imported/izq_arbol.png-ced5e46f47884c2312e82c2ccba21d12.ctex"
+uid="uid://bdy5c5dgb4oej"
+path="res://.godot/imported/gridOthers.png-f368f4440d1f609d36bd718e8137ecba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/level_02/izq_arbol.png"
-dest_files=["res://.godot/imported/izq_arbol.png-ced5e46f47884c2312e82c2ccba21d12.ctex"]
+source_file="res://assets/tiles/gridOthers.png"
+dest_files=["res://.godot/imported/gridOthers.png-f368f4440d1f609d36bd718e8137ecba.ctex"]
 
 [params]
 

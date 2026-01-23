@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnloyp1umfu6t"
-path="res://.godot/imported/Map2 Tree Grid.png-ed463e63ec05300f2c1ec7ea9270383f.ctex"
+uid="uid://dalceq7rw8wkn"
+path="res://.godot/imported/RedAntAnims.png-f6ba37c6d1b302bfa3a10f2b75b028f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/level_02/Map2 Tree Grid.png"
-dest_files=["res://.godot/imported/Map2 Tree Grid.png-ed463e63ec05300f2c1ec7ea9270383f.ctex"]
+source_file="res://assets/characters/RedAntAnims.png"
+dest_files=["res://.godot/imported/RedAntAnims.png-f6ba37c6d1b302bfa3a10f2b75b028f7.ctex"]
 
 [params]
 

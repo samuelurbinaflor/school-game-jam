@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://10201ts2gjn4"
-path="res://.godot/imported/med.png-4e749eab9f9f7a29aaa3943ea2b1ffb3.ctex"
+uid="uid://bg1vyk0hmjynx"
+path="res://.godot/imported/PlayerAnims.png-08b9263b9372326a0bc42acf16e26518.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/level_02/med.png"
-dest_files=["res://.godot/imported/med.png-4e749eab9f9f7a29aaa3943ea2b1ffb3.ctex"]
+source_file="res://assets/characters/PlayerAnims.png"
+dest_files=["res://.godot/imported/PlayerAnims.png-08b9263b9372326a0bc42acf16e26518.ctex"]
 
 [params]
 
