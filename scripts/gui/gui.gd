@@ -97,7 +97,9 @@ func start_timer() -> void:
 func _on_time_finished() -> void:
 	_hide_and_stop_ui()
 	get_tree().paused = false
-	get_tree().reload_current_scene()
+	# Solo recargar si estamos en un nivel
+	if has_level_scene():
+		get_tree().reload_current_scene()
 
 
 func _hide_and_stop_ui() -> void:
