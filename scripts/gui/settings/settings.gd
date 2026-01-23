@@ -56,7 +56,4 @@ func _on_close_button_pressed() -> void:
 	if _color_tween:
 		_color_tween.kill()
 	visible = false
-	# Return to pause menu, don't resume game
-	var gui = get_parent()
-	gui.get_node("PauseMenu").show()
 	settings_closed.emit()

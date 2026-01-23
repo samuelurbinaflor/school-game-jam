@@ -238,4 +238,4 @@ animation = &"idle"
 position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_qhqgy")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="PlayerAudio" type="AudioStreamPlayer2D" parent="."]
