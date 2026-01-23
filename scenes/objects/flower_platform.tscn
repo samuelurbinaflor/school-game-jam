@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b02dw1kevpspe"]
 
-[ext_resource type="Texture2D" uid="uid://6ct7q2rv4ev5" path="res://assets/tiles/flower.png" id="1_amih7"]
+[ext_resource type="Texture2D" uid="uid://dk0v5ur0g6scr" path="res://assets/tiles/level_01/flower.png" id="1_amih7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vm8km"]
 

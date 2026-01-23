@@ -28,7 +28,7 @@ ConfigManager="*res://scripts/config_manager.gd"
 window/size/viewport_width=768
 window/size/viewport_height=512
 window/stretch/mode="canvas_items"
-mouse_cursor/custom_image="uid://biieoodqqngyp"
+mouse_cursor/custom_image="uid://bpj8refjnltkq"
 
 [global_group]
 

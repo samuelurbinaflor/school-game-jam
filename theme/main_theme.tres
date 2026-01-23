@@ -1,11 +1,11 @@
 [gd_resource type="Theme" load_steps=27 format=3 uid="uid://chd4lg26jo6hf"]
 
-[ext_resource type="Texture2D" uid="uid://dnlkyuxixkck0" path="res://assets/Ornate Retro UI/BrownUP.png" id="1_afw5t"]
-[ext_resource type="Texture2D" uid="uid://qhw4kj1j0qot" path="res://assets/Ornate Retro UI/panelFull.png" id="1_os614"]
-[ext_resource type="Texture2D" uid="uid://droaplu1gdc8" path="res://assets/Ornate Retro UI/BrownDOWN.png" id="2_1knni"]
-[ext_resource type="Texture2D" uid="uid://chapp6rc03ch2" path="res://assets/Ornate Retro UI/grabber0.png" id="5_adhqp"]
-[ext_resource type="Texture2D" uid="uid://byxrtvloyi78j" path="res://assets/Ornate Retro UI/grabberH.png" id="6_75705"]
-[ext_resource type="Texture2D" uid="uid://dtykcbw07qx4v" path="res://assets/Ornate Retro UI/sliderBackground.png" id="8_ftk8o"]
+[ext_resource type="Texture2D" uid="uid://oysqvamynkyf" path="res://assets/Ornate Retro UI/BrownUP.png" id="1_afw5t"]
+[ext_resource type="Texture2D" uid="uid://c25vx2jd7q5ps" path="res://assets/Ornate Retro UI/panelFull.png" id="1_os614"]
+[ext_resource type="Texture2D" uid="uid://brxgmutin32o7" path="res://assets/Ornate Retro UI/BrownDOWN.png" id="2_1knni"]
+[ext_resource type="Texture2D" uid="uid://by4t0ry8uj51f" path="res://assets/Ornate Retro UI/grabber0.png" id="5_adhqp"]
+[ext_resource type="Texture2D" uid="uid://bl1avg41wxtse" path="res://assets/Ornate Retro UI/grabberH.png" id="6_75705"]
+[ext_resource type="Texture2D" uid="uid://c4w5mxhbwr7ts" path="res://assets/Ornate Retro UI/sliderBackground.png" id="8_ftk8o"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dut6s"]
 texture = ExtResource("1_os614")
@@ -45,7 +45,7 @@ region_rect = Rect2(0, 0, 48, 48)
 modulate_color = Color(1.1058325, 1.1058325, 1.1058325, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4xa5k"]
-load_path = "res://.godot/imported/BrownUP.png-8626f82ad6c32d5fa1ecb7e4b7993a80.ctex"
+load_path = "res://.godot/imported/BrownUP.png-25361691dbbb9e46228133b0ed0e0cb6.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fqy7u"]
 texture = SubResource("CompressedTexture2D_4xa5k")

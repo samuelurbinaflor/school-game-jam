@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=4 uid="uid://yahmxkdpyf6v"]
 
-[ext_resource type="Texture2D" uid="uid://dnx1b2qt73njt" path="res://assets/tiles/level_02/grid_02.png" id="1_3acmf"]
-[ext_resource type="Texture2D" uid="uid://xjxlww1k351l" path="res://assets/tiles/level_02/platforms_02.png" id="1_a3l5x"]
-[ext_resource type="Texture2D" uid="uid://cnloyp1umfu6t" path="res://assets/tiles/level_02/Map2 Tree Grid.png" id="2_keemd"]
+[ext_resource type="Texture2D" uid="uid://d0ygqxijs1sxo" path="res://assets/tiles/level_02/grid_02.png" id="1_3acmf"]
+[ext_resource type="Texture2D" uid="uid://b431cmjp64qlt" path="res://assets/tiles/level_02/platforms_02.png" id="1_a3l5x"]
+[ext_resource type="Texture2D" uid="uid://djo1to31ikjr1" path="res://assets/tiles/level_02/Map2 Tree Grid.png" id="2_keemd"]
 [ext_resource type="PackedScene" uid="uid://b7fekfvyoi1a6" path="res://scenes/player.tscn" id="2_yjjx0"]
 [ext_resource type="PackedScene" uid="uid://dnovuc1y15248" path="res://scenes/mushroomSwitch.tscn" id="3_a3l5x"]
 [ext_resource type="PackedScene" uid="uid://dqibeisegp8kd" path="res://scenes/enemy.tscn" id="4_keemd"]
