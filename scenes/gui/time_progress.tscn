@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://co1fghg8e5wyt"]
+[gd_scene load_steps=5 format=3 uid="uid://bva1gkdhwrvx"]
 
-[ext_resource type="Texture2D" uid="uid://dn40sb0e7gvhp" path="res://assets/Ornate Retro UI/panelTransparente.png" id="1_xbtfb"]
-[ext_resource type="Script" uid="uid://dqpcedgdjx2yq" path="res://scripts/gui/time_progress.gd" id="2_v42vh"]
+[ext_resource type="Texture2D" path="res://assets/Ornate Retro UI/panelTransparente.png" id="1_xbtfb"]
+[ext_resource type="Script" path="res://scripts/gui/time_progress.gd" id="2_v42vh"]
 
 [sub_resource type="Gradient" id="Gradient_xbtfb"]
 interpolation_mode = 1

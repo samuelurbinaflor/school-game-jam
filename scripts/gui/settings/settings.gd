@@ -60,4 +60,3 @@ func _on_close_button_pressed() -> void:
 	var gui = get_parent()
 	gui.get_node("PauseMenu").show()
 	settings_closed.emit()
-
