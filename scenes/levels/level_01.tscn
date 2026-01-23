@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://c7hqnf5b5k557"]
+[gd_scene load_steps=15 format=4 uid="uid://c7hqnf5b5k557"]
 
 [ext_resource type="Texture2D" uid="uid://rd6bvpret2uo" path="res://assets/tiles/gridOthers.png" id="1_2djvx"]
 [ext_resource type="Script" uid="uid://dswow2xdhhxwj" path="res://scripts/test_level.gd" id="1_50wog"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://b7fekfvyoi1a6" path="res://scenes/player.tscn" id="4_qdh5e"]
 [ext_resource type="PackedScene" uid="uid://dnovuc1y15248" path="res://scenes/mushroomSwitch.tscn" id="5_qdh5e"]
 [ext_resource type="PackedScene" uid="uid://dfqlbu1qlp6vl" path="res://scenes/enemy_ant.tscn" id="7_kfebt"]
-[ext_resource type="PackedScene" uid="uid://dqibeisegp8kd" path="res://scenes/enemy.tscn" id="8_kfebt"]
 [ext_resource type="PackedScene" uid="uid://cui63m8h1wfx2" path="res://scenes/enemy_pitijopo.tscn" id="8_r72dd"]
 [ext_resource type="PackedScene" uid="uid://b02dw1kevpspe" path="res://scenes/objects/flower_platform.tscn" id="9_kfebt"]
 
@@ -94,6 +93,7 @@ tile_map_data = PackedByteArray("AAAAAAcAAgAAAAEAAAAAAAgAAgAAAAEAAAAAAAkAAgAAAAE
 tile_set = SubResource("TileSet_kfebt")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0.4745098)
@@ -134,27 +134,43 @@ position = Vector2(1263, 338)
 
 [node name="Enemigos" type="Node2D" parent="."]
 
-[node name="Enemy2" parent="Enemigos" instance=ExtResource("8_kfebt")]
-position = Vector2(553, 398)
-
-[node name="Enemy4" parent="Enemigos" instance=ExtResource("8_kfebt")]
-position = Vector2(2047, 300)
-
 [node name="enemy_ant" parent="Enemigos" instance=ExtResource("7_kfebt")]
-position = Vector2(214.99998, 395)
+position = Vector2(1193, 396)
 collision_mask = 2
+
+[node name="enemy_ant2" parent="Enemigos" instance=ExtResource("7_kfebt")]
+position = Vector2(2868.0002, 394)
+
+[node name="enemy_ant3" parent="Enemigos" instance=ExtResource("7_kfebt")]
+position = Vector2(3188.0002, 202.99998)
+
+[node name="enemy_ant4" parent="Enemigos" instance=ExtResource("7_kfebt")]
+position = Vector2(1132.9999, 130)
+comportamiento = 1
+
+[node name="enemy_ant5" parent="Enemigos" instance=ExtResource("7_kfebt")]
+position = Vector2(2037, 300)
+comportamiento = 1
+
+[node name="enemy_ant6" parent="Enemigos" instance=ExtResource("7_kfebt")]
+position = Vector2(1368, 397)
 
 [node name="enemy_pitijopo" parent="Enemigos" instance=ExtResource("8_r72dd")]
-position = Vector2(320.00003, 236)
+position = Vector2(2392.0002, 193.99998)
 collision_mask = 2
+vuelo = 0
 
-[node name="Enemy3" parent="Enemigos" instance=ExtResource("8_kfebt")]
-position = Vector2(1138, 127)
+[node name="enemy_pitijopo2" parent="Enemigos" instance=ExtResource("8_r72dd")]
+position = Vector2(3385, -10)
+
+[node name="enemy_pitijopo3" parent="Enemigos" instance=ExtResource("8_r72dd")]
+position = Vector2(2649, 127)
+vuelo = 0
 
 [node name="Switch" type="Node2D" parent="."]
 
 [node name="MushroomSwitch" parent="Switch" instance=ExtResource("5_qdh5e")]
-position = Vector2(873, 358)
+position = Vector2(873, 354)
 
 [node name="MushroomSwitch2" parent="Switch" instance=ExtResource("5_qdh5e")]
 position = Vector2(2648, 383)

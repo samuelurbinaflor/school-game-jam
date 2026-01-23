@@ -7,6 +7,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var death_zone: Area2D = $"../DeathZone"
 @onready var player_audio: AudioStreamPlayer2D = $PlayerAudio
 
+var is_dropping_through = false
+
 # Audio streams
 const JUMP_SOUND = preload("res://assets/audio/sfx/movement/jump.mp3")
 const FOOTSTEP_SOUND = preload("res://assets/audio/sfx/movement/walk.mp3")
@@ -26,6 +28,16 @@ func _physics_process(delta):
 
 	#if Input.is_action_just_pressed("salto") and is_on_floor():
 	#velocity.y = jumpVel
+
+	if Input.is_action_just_pressed("down") and is_on_floor():
+		if _is_on_burh_platform():
+			is_dropping_through = true
+			set_collision_mask_value(2, false)
+
+	if is_dropping_through:
+		if velocity.y > 50:
+			is_dropping_through = false
+			set_collision_mask_value(2, true)
 
 	# ───── JUMP BUFFER ─────
 	if Input.is_action_just_pressed("salto"):
@@ -89,3 +101,13 @@ func _update_footstep_sound(_delta: float) -> void:
 func _on_death_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		get_tree().reload_current_scene()
+
+func _is_on_burh_platform() -> bool:
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		if collider and collider.is_in_group("Burh_platform"):
+			return true
+	
+	return false

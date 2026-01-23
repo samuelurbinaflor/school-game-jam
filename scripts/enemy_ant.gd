@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+enum Comportamiento { MOVER, QUIETO }
+
+@export var comportamiento: Comportamiento = Comportamiento.MOVER
+
 @onready var RayDere = $RayCastDere
 @onready var RayIzq = $RayCastIzq
 @onready var RayDereAbajo = $RayCastAbajoDere
@@ -27,7 +31,13 @@ func _physics_process(delta):
 		play_anim("corrupted")
 		move_and_slide()
 		return
-		
+	
+	if comportamiento == Comportamiento.QUIETO:
+		velocity = Vector2.ZERO
+		play_anim("idle")
+		move_and_slide()
+		return
+	
 	#if GameState.current_mode == GameState.WorldMode.RED:
 	#	velocity = Vector2.ZERO
 	#	move_and_slide()
@@ -43,7 +53,7 @@ func _physics_process(delta):
 		velocity.x = -vel
 	else:
 		velocity.x = vel
-	move_and_slide()
+	
 	vuelta()
 	
 	# ───── ANIMACIONES ─────
@@ -52,6 +62,7 @@ func _physics_process(delta):
 	else:
 		play_anim("walk")
 		
+	move_and_slide()
 
 func vuelta():
 	var gira = false
@@ -101,7 +112,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and GameState.current_mode == GameState.WorldMode.RED and not is_corrupted:
 		print("El enemigo esta corrupto")
 		is_corrupted = true
-		animated_sprite_2d.play("corrupted")
 		set_collision_mask_value(1, false)
 		corrupted.emit()
 		

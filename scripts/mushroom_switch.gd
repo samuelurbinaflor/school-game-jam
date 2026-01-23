@@ -1,14 +1,23 @@
+@tool
 extends Area2D
 
-@export var switch_type: GameState.WorldMode = GameState.WorldMode.RED
+# El setter permite que al cambiar el valor en el inspector, el sprite cambie al instante
+@export var switch_type: GameState.WorldMode = GameState.WorldMode.RED:
+	set(value):
+		switch_type = value
+		if Engine.is_editor_hint() or is_inside_tree():
+			_update_sprite_frame()
 
 @onready var sprite = $Sprite2D
 var is_pressed := false
 
 func _ready():
-	body_entered.connect(_on_body_entered)
-	body_exited.connect(_on_body_exited)
-	_update_color(switch_type)
+	# Solo conectamos señales si estamos jugando, no en el editor 
+	if not Engine.is_editor_hint():
+		body_entered.connect(_on_body_entered)
+		body_exited.connect(_on_body_exited)
+	
+	_update_sprite_frame()
 
 func _on_body_entered(body):
 	if body.name == "Player" and not is_pressed:
@@ -26,15 +35,26 @@ func activate():
 	tween.tween_property(sprite, "scale", Vector2(0.9, 0.8), 0.1)
 	tween.tween_property(sprite, "scale", Vector2(1.0, 1.0), 0.1)
 
-func _update_color(mode: GameState.WorldMode):
-	match mode:
-		GameState.WorldMode.NORMAL:
-			sprite.modulate = Color.BLACK
+# Esta función gestiona el cambio visual usando los frames de la imagen
+func _update_sprite_frame():
+	if not sprite:
+		sprite = get_node_or_null("Sprite2D")
+		if not sprite:
+			return
+	
+	# Asignamos el frame según el enum de GameState
+	# Orden en el sprite: Rojo, Naranja, Verde, Amarillo
+	match switch_type:
 		GameState.WorldMode.RED:
-			sprite.modulate = Color(0.614, 0.0, 0.131)
+			sprite.frame = 0
 		GameState.WorldMode.ORANGE:
-			sprite.modulate = Color(0.765, 0.397, 0.044)
-		GameState.WorldMode.YELLOW:
-			sprite.modulate = Color(0.607, 0.578, 0.037)
+			sprite.frame = 1
 		GameState.WorldMode.GREEN:
-			sprite.modulate = Color(0.0, 0.61, 0.225)
+			sprite.frame = 2
+		GameState.WorldMode.YELLOW:
+			sprite.frame = 3
+		_:
+			sprite.frame = 0
+	
+	# Asegurarnos de que el sprite use el color original
+	sprite.modulate = Color.WHITE

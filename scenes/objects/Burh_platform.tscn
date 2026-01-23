@@ -1,7 +1,24 @@
-[gd_scene format=3 uid="uid://jix6nr3ms86f"]
+[gd_scene load_steps=5 format=3 uid="uid://jix6nr3ms86f"]
 
-[node name="BurhPlatform" type="StaticBody2D"]
+[ext_resource type="Script" uid="uid://bd2iuafbstjuw" path="res://scripts/burh_platform.gd" id="1_0hqpt"]
+[ext_resource type="Texture2D" uid="uid://10201ts2gjn4" path="res://assets/tiles/level_02/med.png" id="1_p2xr3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uwrco"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2xr3"]
+size = Vector2(32, 17)
+
+[node name="Burh_platform" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_uwrco")
+script = ExtResource("1_0hqpt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_p2xr3")
+one_way_collision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p2xr3")
+region_rect = Rect2(2, 45, 60, 19)
