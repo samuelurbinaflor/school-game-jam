@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bdoig1y0xb5wj" path="res://scripts/components/audio_button.gd" id="5_retkk"]
 
 [node name="GUI" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_2nda2")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
