@@ -1,0 +1,149 @@
+[gd_scene load_steps=10 format=3 uid="uid://1tob7x66tck4"]
+
+[ext_resource type="Script" uid="uid://bdoig1y0xb5wj" path="res://scripts/components/audio_button.gd" id="1_4vp8g"]
+[ext_resource type="Script" uid="uid://c6xynu6mxu2lk" path="res://scripts/gui/pause_menu.gd" id="1_pause"]
+[ext_resource type="Texture2D" uid="uid://eqih772htjw" path="res://assets/ui/lucid/Question-Mark.png" id="2_e3p60"]
+[ext_resource type="Texture2D" uid="uid://hjg3jn5ye65w" path="res://assets/ui/lucid/Home.png" id="3_a81cd"]
+[ext_resource type="Texture2D" uid="uid://c1x8g2g5lgcy4" path="res://assets/ui/lucid/Redo.png" id="4_11l0y"]
+
+[sub_resource type="Gradient" id="Gradient_1oj2q"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uixhc"]
+gradient = SubResource("Gradient_1oj2q")
+fill_from = Vector2(0, 0.31196582)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_retkk"]
+font_size = 176
+
+[sub_resource type="LabelSettings" id="LabelSettings_1svuw"]
+font_size = 26
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pause")
+
+[node name="Panel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_uixhc")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 256.0
+grow_horizontal = 2
+text = "ui_pause"
+label_settings = SubResource("LabelSettings_retkk")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -317.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="ToSettingsButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "ui_settings"
+script = ExtResource("1_4vp8g")
+metadata/_custom_type_script = "uid://bdoig1y0xb5wj"
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "ui_resume"
+script = ExtResource("1_4vp8g")
+metadata/_custom_type_script = "uid://bdoig1y0xb5wj"
+
+[node name="ToAlert" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "ui_quit"
+script = ExtResource("1_4vp8g")
+sound = "back"
+metadata/_custom_type_script = "uid://bdoig1y0xb5wj"
+
+[node name="Alert" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = -36.0
+offset_right = 193.0
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Alert"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Alert/VBoxContainer"]
+custom_minimum_size = Vector2(0, 35.08)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_e3p60")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Alert/VBoxContainer"]
+layout_mode = 2
+text = "ui_quit_alert"
+label_settings = SubResource("LabelSettings_1svuw")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Alert/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="ToMenuButton" type="Button" parent="Alert/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ui_yes"
+icon = ExtResource("3_a81cd")
+script = ExtResource("1_4vp8g")
+sound = "back"
+metadata/_custom_type_script = "uid://bdoig1y0xb5wj"
+
+[node name="CloseAlertButton" type="Button" parent="Alert/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ui_no"
+icon = ExtResource("4_11l0y")
+script = ExtResource("1_4vp8g")
+metadata/_custom_type_script = "uid://bdoig1y0xb5wj"

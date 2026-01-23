@@ -3,6 +3,8 @@ extends Control
 
 var _color_tween: Tween
 
+signal settings_closed
+
 
 func _ready() -> void:
 	visible = false
@@ -53,4 +55,9 @@ func _animate_overlay_colors() -> void:
 func _on_close_button_pressed() -> void:
 	if _color_tween:
 		_color_tween.kill()
-	queue_free()
+	visible = false
+	# Return to pause menu, don't resume game
+	var gui = get_parent()
+	gui.get_node("PauseMenu").show()
+	settings_closed.emit()
+

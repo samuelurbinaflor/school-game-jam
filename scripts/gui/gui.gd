@@ -3,6 +3,7 @@ extends Node
 func _ready() -> void:
 	print("GUI _ready() called")
 	$Settings.hide()
+	$PauseButton.hide()
 
 	# Listen for scene changes
 	get_tree().scene_changed.connect(_on_scene_changed)
@@ -22,6 +23,7 @@ func _check_and_start_timer() -> void:
 
 	if has_level_scene():
 		print("Level scene found!")
+		$PauseButton.show()
 		start_timer()
 
 
@@ -47,3 +49,26 @@ func start_timer() -> void:
 		time_progress.start()
 	else:
 		print("TimeProgress node not found in the tree")
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pausa") and has_level_scene(): 
+		toggle_pause()
+		get_tree().root.set_input_as_handled()
+
+
+func toggle_pause() -> void:
+	if get_tree().paused:
+		_on_resume_pressed()
+	else:
+		_on_pause_button_pressed()
+
+
+func _on_pause_button_pressed() -> void:
+	$PauseMenu.show()
+	get_tree().paused = true
+
+
+func _on_resume_pressed() -> void:
+	$PauseMenu.hide()
+	get_tree().paused = false

@@ -8,3 +8,9 @@ ui_ambiente,Ambiente,Environment
 ui_reset,Restablecer,Reset
 ui_language,Idioma,Language
 ui_start,Iniciar,Start
+ui_pause,Pausa,Pause
+ui_resume,Reanudar,Resume
+ui_quit,Salir,Quit
+ui_quit_alert,Se perderá el progreso,All progress will be lost
+ui_yes,Sí,Yes
+ui_no,No,No
