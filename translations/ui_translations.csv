@@ -14,3 +14,9 @@ ui_quit,Salir,Quit
 ui_quit_alert,Se perderá el progreso,All progress will be lost
 ui_yes,Sí,Yes
 ui_no,No,No
+ui_credits,Créditos,Credits
+ui_production,Producción,Production
+ui_design,Diseño,Design
+ui_programming,Programación,Programming
+ui_art,Arte,Art
+ui_audio,Audio,Audio

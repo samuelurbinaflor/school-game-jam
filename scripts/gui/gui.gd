@@ -31,6 +31,8 @@ func _check_and_start_timer() -> void:
 		_connect_enemy_signals()
 		$PauseButton.show()
 		$MushroomCounter.show()
+		$PauseMenu.hide()
+		$Settings.hide()
 		start_timer()
 
 
@@ -85,7 +87,8 @@ func start_timer() -> void:
 	print("Looking for TimeProgress...")
 	if time_progress:
 		print("Timer started!")
-		time_progress.time_finished.connect(_on_time_finished)
+		if not time_progress.time_finished.is_connected(_on_time_finished):
+			time_progress.time_finished.connect(_on_time_finished)
 		time_progress.start()
 	else:
 		print("TimeProgress node not found in the tree")
@@ -94,7 +97,9 @@ func start_timer() -> void:
 func _on_time_finished() -> void:
 	_hide_and_stop_ui()
 	get_tree().paused = false
-	get_tree().reload_current_scene()
+	# Solo recargar si estamos en un nivel
+	if has_level_scene():
+		get_tree().reload_current_scene()
 
 
 func _hide_and_stop_ui() -> void:
@@ -124,6 +129,7 @@ func toggle_pause() -> void:
 
 func _on_pause_button_pressed() -> void:
 	$PauseMenu.show()
+	$PauseMenu.just_paused = true
 	get_tree().paused = true
 
 
