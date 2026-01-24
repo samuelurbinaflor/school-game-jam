@@ -70,15 +70,22 @@ layout_mode = 2
 theme_override_constants/separation = 6
 alignment = 1
 
-[node name="ToSettingsButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "ui_settings"
-script = ExtResource("1_4vp8g")
-metadata/_custom_type_script = "uid://bdoig1y0xb5wj"
-
 [node name="ResumeButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "ui_resume"
+script = ExtResource("1_4vp8g")
+metadata/_custom_type_script = "uid://bdoig1y0xb5wj"
+
+[node name="RetryButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "ui_retry
+"
+script = ExtResource("1_4vp8g")
+metadata/_custom_type_script = "uid://bdoig1y0xb5wj"
+
+[node name="ToSettingsButton" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "ui_settings"
 script = ExtResource("1_4vp8g")
 metadata/_custom_type_script = "uid://bdoig1y0xb5wj"
 
@@ -147,8 +154,9 @@ icon = ExtResource("4_11l0y")
 script = ExtResource("1_4vp8g")
 metadata/_custom_type_script = "uid://bdoig1y0xb5wj"
 
-[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/ToSettingsButton" to="." method="_on_to_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/ToSettingsButton" to="." method="_on_to_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/ToAlert" to="." method="_on_to_alert_pressed"]
 [connection signal="pressed" from="Alert/VBoxContainer/HBoxContainer/ToMenuButton" to="." method="_on_to_menu_button_pressed"]
 [connection signal="pressed" from="Alert/VBoxContainer/HBoxContainer/CloseAlertButton" to="." method="_on_close_alert_button_pressed"]

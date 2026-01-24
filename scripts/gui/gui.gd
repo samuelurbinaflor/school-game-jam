@@ -7,6 +7,7 @@ func _ready() -> void:
 	$Settings.hide()
 	$PauseButton.hide()
 	$MushroomCounter.hide()
+	corrupted_count = 9
 	_update_mushroom_counter()
 
 	# Listen for scene changes
@@ -18,6 +19,7 @@ func _ready() -> void:
 
 func _on_scene_changed() -> void:
 	print("Scene changed, checking for level...")
+	corrupted_count = 9
 	_update_mushroom_counter()
 	_check_and_start_timer()
 
