@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dnovuc1y15248" path="res://scenes/mushroomSwitch.tscn" id="3_a3l5x"]
 [ext_resource type="Texture2D" uid="uid://dx00lhm24u8kb" path="res://assets/tiles/colors_platform.png" id="3_n536o"]
 [ext_resource type="PackedScene" uid="uid://chiagookyitcl" path="res://scenes/platform.tscn" id="6_keemd"]
-[ext_resource type="PackedScene" uid="uid://jix6nr3ms86f" path="res://scenes/objects/Burh_platform.tscn" id="8_c6rld"]
+[ext_resource type="PackedScene" uid="uid://jix6nr3ms86f" path="res://scenes/objects/bush_platform.tscn" id="8_c6rld"]
 [ext_resource type="Texture2D" uid="uid://b52frlfnl2hrb" path="res://assets/tiles/level_02/der.png" id="8_km0xc"]
 [ext_resource type="Texture2D" uid="uid://dwvvi7e3kx611" path="res://assets/tiles/level_02/med2.png" id="9_4hx2o"]
 [ext_resource type="Texture2D" uid="uid://bl80acq6ihi37" path="res://assets/tiles/level_02/med.png" id="9_n536o"]
