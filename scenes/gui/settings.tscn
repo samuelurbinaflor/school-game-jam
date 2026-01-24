@@ -421,13 +421,29 @@ icon_alignment = 1
 script = ExtResource("7_4ppmf")
 metadata/_custom_type_script = "uid://bdoig1y0xb5wj"
 
-[node name="ResetButton" type="Button" parent="MarginContainer/TabContainer/Audio"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/Audio/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="ResetButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 20
 text = "ui_reset"
+script = ExtResource("7_4ppmf")
+metadata/_custom_type_script = "uid://bdoig1y0xb5wj"
+
+[node name="SaveButton" type="Button" parent="MarginContainer/TabContainer/Audio/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 20
+text = "ui_save"
 script = ExtResource("7_4ppmf")
 metadata/_custom_type_script = "uid://bdoig1y0xb5wj"
 
@@ -462,6 +478,7 @@ popup/item_1/icon = ExtResource("8_am25x")
 popup/item_1/id = 1
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -480,5 +497,6 @@ script = ExtResource("7_4ppmf")
 sound = "back"
 metadata/_custom_type_script = "uid://bdoig1y0xb5wj"
 
-[connection signal="pressed" from="MarginContainer/TabContainer/Audio/ResetButton" to="MarginContainer/TabContainer/Audio" method="_on_reset_button_pressed"]
+[connection signal="pressed" from="MarginContainer/TabContainer/Audio/MarginContainer/HBoxContainer/ResetButton" to="MarginContainer/TabContainer/Audio" method="_on_reset_button_pressed"]
+[connection signal="pressed" from="MarginContainer/TabContainer/Audio/MarginContainer/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="BoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
