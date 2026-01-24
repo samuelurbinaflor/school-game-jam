@@ -4,7 +4,8 @@ extends Node2D
 
 func _ready():
 	GameState.mode_changed.connect(_on_mode_changed)
-	
+	GameState.reset_to_normal()
+
 	_on_mode_changed(GameState.current_mode)
 
 func _on_mode_changed(_new_mode):
