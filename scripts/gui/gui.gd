@@ -110,7 +110,7 @@ func _on_time_finished() -> void:
 func _hide_and_stop_ui() -> void:
 	# Esconder contador
 	$MushroomCounter.hide()
-	
+	$PauseButton.hide()
 	# Esconder y parar temporizador
 	var time_progress = get_tree().root.find_child("TimeProgress", true, false)
 	if time_progress:
