@@ -306,6 +306,7 @@ position = Vector2(2868.0002, 394)
 
 [node name="enemy_ant3" parent="Enemigos" instance=ExtResource("7_kfebt")]
 position = Vector2(3188.0002, 202.99998)
+comportamiento = 1
 
 [node name="enemy_ant4" parent="Enemigos" instance=ExtResource("7_kfebt")]
 position = Vector2(1132.9999, 130)

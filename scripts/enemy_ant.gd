@@ -81,6 +81,8 @@ func vuelta():
 		ha_girado = true
 
 func _on_mode_changed(_new_mode):
+	if is_corrupted:
+		return
 	if _new_mode == GameState.WorldMode.RED:
 		set_collision_mask_value(1, true)
 		set_collision_mask_value(2, true)
@@ -88,8 +90,7 @@ func _on_mode_changed(_new_mode):
 		set_collision_mask_value(1, false)
 		set_collision_mask_value(2, true)
 	
-	if is_corrupted:
-		return
+	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and \
