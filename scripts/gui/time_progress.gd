@@ -1,8 +1,8 @@
 class_name TimeProgress
 extends TextureProgressBar
 
-#@export var total_time: float = 60.0 # Time in seconds
-@export var total_time: float = 10.0 # Time in seconds
+@export var total_time: float = 60.0 # Time in seconds
+#@export var total_time: float = 10.0 # Time in seconds
 
 var _time_remaining: float = 0.0
 var _is_running: bool = false

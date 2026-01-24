@@ -25,9 +25,12 @@ func _ready():
 func _physics_process(_delta):
 	time += _delta
 	if is_corrupted:
+		set_collision_mask_value(1, false)
+		set_collision_mask_value(2, true)
 		velocity.y += gravity * _delta
 		velocity.x = 0
 		play_anim("corrupted")
+		
 		move_and_slide()
 		return
 	
