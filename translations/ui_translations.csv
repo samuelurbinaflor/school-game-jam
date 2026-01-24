@@ -1,15 +1,17 @@
 key,es,en
 ui_settings,Ajustes,Settings
-ui_music,Música,Music
+ui_music,Música,Musics
 ui_sfx,Efectos,Effects
 ui_ui,Interfaz,Interface
 ui_bugs,Bichos,Bugs
 ui_ambiente,Ambiente,Environment
 ui_reset,Restablecer,Reset
+ui_save,Guardar,Save
 ui_language,Idioma,Language
 ui_start,Iniciar,Start
 ui_pause,Pausa,Pause
 ui_resume,Reanudar,Resume
+ui_retry,Reintentar,Retry
 ui_quit,Salir,Quit
 ui_quit_alert,Se perderá el progreso,All progress will be lost
 ui_yes,Sí,Yes

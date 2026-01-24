@@ -7,6 +7,7 @@ func _ready() -> void:
 	$Settings.hide()
 	$PauseButton.hide()
 	$MushroomCounter.hide()
+	corrupted_count = 9
 	_update_mushroom_counter()
 
 	# Listen for scene changes
@@ -18,6 +19,7 @@ func _ready() -> void:
 
 func _on_scene_changed() -> void:
 	print("Scene changed, checking for level...")
+	corrupted_count = 9
 	_update_mushroom_counter()
 	_check_and_start_timer()
 
@@ -97,6 +99,9 @@ func start_timer() -> void:
 func _on_time_finished() -> void:
 	_hide_and_stop_ui()
 	get_tree().paused = false
+	corrupted_count = 9
+	_update_mushroom_counter()
+	
 	# Solo recargar si estamos en un nivel
 	if has_level_scene():
 		get_tree().reload_current_scene()
@@ -105,7 +110,7 @@ func _on_time_finished() -> void:
 func _hide_and_stop_ui() -> void:
 	# Esconder contador
 	$MushroomCounter.hide()
-	
+	$PauseButton.hide()
 	# Esconder y parar temporizador
 	var time_progress = get_tree().root.find_child("TimeProgress", true, false)
 	if time_progress:

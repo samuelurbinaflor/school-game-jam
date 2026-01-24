@@ -161,13 +161,10 @@ size = Vector2(20.22904, 19.092707)
 size = Vector2(37.568222, 35.248077)
 
 [node name="enemy_pitijopo" type="CharacterBody2D"]
-position = Vector2(31.000002, 28.999998)
 scale = Vector2(0.6920744, 0.6808883)
 collision_layer = 4
 script = ExtResource("1_usb33")
 vuelo = 2
-distanciaV = 100
-distanciaH = 200
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.9999999, 1)

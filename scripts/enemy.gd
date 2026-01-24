@@ -41,6 +41,7 @@ func corrupt():
 func _play_pop_sound():
 	var pop_audio = AudioStreamPlayer2D.new()
 	pop_audio.stream = POP_SOUND
+	pop_audio.bus = "SFX"
 	add_child(pop_audio)
 	pop_audio.play()
 
