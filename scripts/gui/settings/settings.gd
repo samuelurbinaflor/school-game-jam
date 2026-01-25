@@ -52,15 +52,15 @@ func _animate_overlay_colors() -> void:
 		_color_tween.tween_property($"Panel", "self_modulate", color, 2.0)
 
 
-#func _on_close_button_pressed() -> void:
-	#if _color_tween:
-		#_color_tween.kill()
-	#visible = false
-	#settings_closed.emit()
-
-
-func _on_save_button_pressed() -> void:
+func _on_close_button_pressed() -> void:
 	if _color_tween:
 		_color_tween.kill()
 	visible = false
 	settings_closed.emit()
+
+
+#func _on_save_button_pressed() -> void:
+	#if _color_tween:
+		#_color_tween.kill()
+	#visible = false
+	#settings_closed.emit()
